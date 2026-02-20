@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kyle Beaulieu — Commercial Food & Branding Photographer | Ottawa & Gatineau</title>
+  <meta name="description" content="Kyle Beaulieu is a commercial food and branding photographer based in Ottawa and Gatineau. Stunning imagery for restaurants, chefs, and businesses.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ---- Hero ---- */
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+    .hero-image {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-image img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transform: scale(1.05);
+      animation: subtle-zoom 12s ease-out forwards;
+    }
+    @keyframes subtle-zoom { to { transform: scale(1); } }
+    .hero-image::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(20,18,16,0.25) 0%, transparent 60%);
+    }
+    .hero-content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 80px 64px;
+      background: var(--dark-surface);
+      overflow: hidden;
+    }
+    .hero-content::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(196,163,90,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fade-up 0.8s 0.3s ease forwards;
+    }
+    .hero-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(48px, 5.5vw, 82px);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--cream);
+      margin-bottom: 32px;
+      opacity: 0;
+      animation: fade-up 0.8s 0.5s ease forwards;
+    }
+    .hero-headline em { font-style: italic; color: var(--gold-light); }
+    .hero-body {
+      font-size: 14px;
+      line-height: 1.85;
+      color: rgba(245,240,232,0.5);
+      max-width: 360px;
+      font-weight: 300;
+      margin-bottom: 48px;
+      opacity: 0;
+      animation: fade-up 0.8s 0.7s ease forwards;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fade-up 0.8s 0.9s ease forwards;
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 44px; left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      animation: fade-up 1s 1.4s ease forwards;
+    }
+    .hero-scroll span {
+      font-size: 9px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.3);
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+    }
+    .hero-scroll::before {
+      content: '';
+      width: 1px; height: 48px;
+      background: linear-gradient(to bottom, transparent, var(--gold));
+      animation: scroll-line 1.6s 2s ease infinite;
+    }
+    @keyframes scroll-line {
+      0%   { transform: scaleY(0); transform-origin: top; }
+      49%  { transform: scaleY(1); transform-origin: top; }
+      50%  { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ---- Portfolio section ---- */
+    .portfolio-section {
+      padding: 120px 0;
+      background: var(--charcoal);
+    }
+    .portfolio-intro {
+      padding: 0 48px;
+      max-width: 640px;
+      margin-bottom: 48px;
+    }
+    .portfolio-heading {
+      font-family: var(--font-serif);
+      font-size: clamp(36px, 4vw, 60px);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--cream);
+    }
+    .portfolio-heading em { font-style: italic; color: var(--gold-light); }
+    .tab-row {
+      padding: 0 48px 36px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      padding: 12px 28px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s;
+      border: 1px solid rgba(245,240,232,0.15);
+      color: rgba(245,240,232,0.5);
+      cursor: none;
+      background: none;
+      font-family: var(--font-sans);
+    }
+    .tab-btn:hover, .tab-btn.active {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* Homepage grid layout */
+    .grid-item:nth-child(1)  { grid-column: 1 / 6;  grid-row: 1; aspect-ratio: 4/5; }
+    .grid-item:nth-child(2)  { grid-column: 6 / 9;  grid-row: 1; aspect-ratio: 3/5; }
+    .grid-item:nth-child(3)  { grid-column: 9 / 13; grid-row: 1; aspect-ratio: 4/5; }
+    .grid-item:nth-child(4)  { grid-column: 1 / 4;  grid-row: 2; aspect-ratio: 3/4; }
+    .grid-item:nth-child(5)  { grid-column: 4 / 9;  grid-row: 2; aspect-ratio: 5/4; }
+    .grid-item:nth-child(6)  { grid-column: 9 / 13; grid-row: 2; aspect-ratio: 4/4; }
+    .grid-item:nth-child(7)  { grid-column: 1 / 5;  grid-row: 3; aspect-ratio: 4/3; }
+    .grid-item:nth-child(8)  { grid-column: 5 / 9;  grid-row: 3; aspect-ratio: 4/3; }
+    .grid-item:nth-child(9)  { grid-column: 9 / 13; grid-row: 3; aspect-ratio: 4/3; }
+
+    .portfolio-more {
+      padding: 60px 48px 0;
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    /* ---- About strip ---- */
+    .about-strip {
+      padding: 140px 0;
+      background: var(--warm-white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+    .about-img-col {
+      position: relative;
+    }
+    .about-img-col img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .about-img-col::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; right: -3px;
+      width: 55%; height: 55%;
+      border: 2px solid var(--gold);
+      pointer-events: none;
+    }
+    .about-text {
+      padding: 80px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .about-heading {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 3.5vw, 52px);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--charcoal);
+      margin-bottom: 28px;
+    }
+    .about-heading em { font-style: italic; color: var(--gold); }
+    .about-body {
+      font-size: 15px;
+      line-height: 1.85;
+      color: #5a5550;
+      font-weight: 300;
+      max-width: 420px;
+      margin-bottom: 16px;
+    }
+    .about-sig {
+      font-family: var(--font-serif);
+      font-size: 30px;
+      font-style: italic;
+      color: var(--charcoal);
+      font-weight: 300;
+      margin-top: 36px;
+    }
+    .about-sig-role {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--warm-grey);
+      margin-top: 4px;
+    }
+
+    /* ---- Services strip ---- */
+    .services-section {
+      padding: 140px 48px;
+      background: var(--dark-surface);
+    }
+    .services-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      margin-bottom: 72px;
+      align-items: end;
+    }
+    .services-heading {
+      font-family: var(--font-serif);
+      font-size: clamp(36px, 4vw, 60px);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--cream);
+    }
+    .services-intro {
+      font-size: 14px;
+      line-height: 1.8;
+      color: rgba(245,240,232,0.45);
+      font-weight: 300;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .service-card {
+      background: rgba(245,240,232,0.03);
+      padding: 52px 44px;
+      border-top: 1px solid rgba(196,163,90,0.2);
+      transition: background 0.4s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: width 0.5s ease;
+    }
+    .service-card:hover { background: rgba(196,163,90,0.05); }
+    .service-card:hover::before { width: 100%; }
+    .service-num {
+      font-family: var(--font-serif);
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 32px;
+    }
+    .service-title {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--cream);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .service-desc {
+      font-size: 13px;
+      line-height: 1.8;
+      color: rgba(245,240,232,0.4);
+      font-weight: 300;
+      margin-bottom: 36px;
+    }
+    .service-link {
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: gap 0.3s;
+    }
+    .service-link:hover { gap: 16px; }
+
+    /* ---- Process ---- */
+    .process-section {
+      padding: 140px 48px;
+      background: var(--cream);
+    }
+    .process-header {
+      text-align: center;
+      margin-bottom: 100px;
+    }
+    .process-heading {
+      font-family: var(--font-serif);
+      font-size: clamp(36px, 4vw, 60px);
+      font-weight: 300;
+      color: var(--charcoal);
+      line-height: 1.1;
+    }
+    .process-heading em { font-style: italic; color: var(--gold); }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      position: relative;
+    }
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 27px; left: 12%; right: 12%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+    }
+    .process-step { padding: 0 28px; text-align: center; }
+    .step-dot {
+      width: 54px; height: 54px;
+      border-radius: 50%;
+      border: 1px solid var(--gold);
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 32px;
+      font-family: var(--font-serif);
+      font-size: 18px;
+      color: var(--gold);
+      position: relative;
+      z-index: 1;
+    }
+    .step-title {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 300;
+      color: var(--charcoal);
+      margin-bottom: 12px;
+    }
+    .step-desc {
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--warm-grey);
+      font-weight: 300;
+    }
+
+    /* ---- CTA ---- */
+    .cta-section {
+      padding: 160px 48px;
+      background: var(--dark-surface);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 120px;
+      align-items: center;
+    }
+    .cta-heading {
+      font-family: var(--font-serif);
+      font-size: clamp(42px, 5vw, 72px);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--cream);
+    }
+    .cta-heading em { font-style: italic; color: var(--gold); display: block; }
+    .cta-body {
+      font-size: 15px;
+      line-height: 1.85;
+      color: rgba(245,240,232,0.45);
+      font-weight: 300;
+      margin-bottom: 28px;
+    }
+    .cta-email {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 300;
+      color: var(--cream);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(196,163,90,0.3);
+      padding-bottom: 8px;
+      transition: color 0.3s, border-color 0.3s;
+      display: inline-block;
+      margin-bottom: 36px;
+    }
+    .cta-email:hover { color: var(--gold); border-color: var(--gold); }
+    .cta-actions { display: flex; gap: 24px; flex-wrap: wrap; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; height: auto; }
+      .hero-image { height: 60vw; min-height: 280px; }
+      .hero-content { padding: 48px 24px 80px; }
+      .hero-headline { font-size: clamp(36px, 9vw, 60px); }
+
+      .portfolio-intro, .tab-row, .portfolio-more { padding-left: 24px; padding-right: 24px; }
+      .grid-item:nth-child(1), .grid-item:nth-child(2), .grid-item:nth-child(3) {
+        grid-column: span 6; grid-row: auto; aspect-ratio: 1/1;
+      }
+      .grid-item:nth-child(4), .grid-item:nth-child(5), .grid-item:nth-child(6),
+      .grid-item:nth-child(7), .grid-item:nth-child(8), .grid-item:nth-child(9) {
+        grid-column: span 6; grid-row: auto; aspect-ratio: 1/1;
+      }
+
+      .about-strip { grid-template-columns: 1fr; }
+      .about-img-col { height: 60vw; }
+      .about-text { padding: 48px 24px; }
+      .about-img-col::after { display: none; }
+
+      .services-header { grid-template-columns: 1fr; gap: 24px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .services-section { padding: 80px 24px; }
+
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 48px; }
+      .process-steps::before { display: none; }
+      .process-section { padding: 80px 24px; }
+
+      .cta-section { grid-template-columns: 1fr; gap: 48px; padding: 80px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<!-- Nav -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <span class="name">Kyle Beaulieu</span>
+    <span class="subtitle">Commercial Photographer</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="food.html">Food</a></li>
+    <li><a href="branding.html">Branding</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="process.html">The Process</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Let's Connect</a>
+  <button class="nav-hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="nav-mobile">
+  <a href="food.html">Food</a>
+  <a href="branding.html">Branding</a>
+  <a href="services.html">Services</a>
+  <a href="process.html">The Process</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-image">
+    <img src="https://static.wixstatic.com/media/55db4c_99d461f8fc99481ca5004301d9f986c9~mv2.jpg/v1/fill/w_1400,h_1000,al_c,q_85,enc_avif,quality_auto/55db4c_99d461f8fc99481ca5004301d9f986c9~mv2.jpg" alt="Commercial food photography by Kyle Beaulieu">
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Ottawa & Gatineau · Commercial Photography</p>
+    <h1 class="hero-headline">
+      Visuals that<br>
+      <em>elevate</em> your<br>
+      brand.
+    </h1>
+    <p class="hero-body">
+      Commercial photography for restaurants, chefs, and businesses that understand the power of a first impression. Every frame is intentional. Every image is yours.
+    </p>
+    <div class="hero-actions">
+      <a href="food.html" class="btn-primary">View Portfolio</a>
+      <a href="contact.html" class="btn-ghost">Start a Project</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span></div>
+</section>
+
+<!-- Stats -->
+<div class="stats-bar">
+  <div class="stat">
+    <span class="stat-number">100+</span>
+    <span class="stat-label">Happy Clients</span>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat">
+    <span class="stat-number">5+</span>
+    <span class="stat-label">Years Experience</span>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat">
+    <span class="stat-number">Food</span>
+    <span class="stat-label">& Branding</span>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat">
+    <span class="stat-number">YOW</span>
+    <span class="stat-label">Ottawa · Gatineau</span>
+  </div>
+</div>
+
+<!-- Portfolio -->
+<section class="portfolio-section">
+  <div class="portfolio-intro reveal">
+    <p class="section-label">Selected Work</p>
+    <h2 class="portfolio-heading">Food & <em>Branding</em><br>Photography</h2>
+  </div>
+  <div class="tab-row reveal reveal-delay-1">
+    <button class="tab-btn active" data-filter="all">All</button>
+    <button class="tab-btn" data-filter="food">Food</button>
+    <button class="tab-btn" data-filter="branding">Branding</button>
+  </div>
+  <div class="portfolio-grid">
+    <div class="grid-item reveal" data-category="food" data-src="https://static.wixstatic.com/media/55db4c_961e2c341eea4deebfd51759a105976d~mv2.jpg/v1/fill/w_1200,h_1500,al_c,q_85,enc_avif,quality_auto/55db4c_961e2c341eea4deebfd51759a105976d~mv2.jpg" data-caption="Food Photography">
+      <img src="https://static.wixstatic.com/media/55db4c_961e2c341eea4deebfd51759a105976d~mv2.jpg/v1/fill/w_800,h_1000,al_c,q_80,enc_avif,quality_auto/55db4c_961e2c341eea4deebfd51759a105976d~mv2.jpg" alt="Food photography" loading="lazy">
+      <div class="grid-overlay"><span class="grid-label">Culinary Detail</span></div>
+    </div>
+    <div class="grid-item reveal reveal-delay-1" data-category="food" data-src="https://static.wixstatic.com/media/55db4c_2505cc22777a4b19b0e3cd380a9865c2~mv2.jpg/v1/fill/w_1000,h_1400,al_c,q_85,enc_avif,quality_auto/55db4c_2505cc22777a4b19b0e3cd380a9865c2~mv2.jpg" data-caption="Menu Photography">
+      <img src="https://static.wixstatic.com/media/55db4c_2505cc22777a4b19b0e3cd380a9865c2~mv2.jpg/v1/fill/w_600,h_900,al_c,q_80,enc_avif,quality_auto/55db4c_2505cc22777a4b19b0e3cd380a9865c2~mv2.jpg" alt="Menu photography" loading="lazy">
+      <div class="grid-overlay"><span class="grid-label">Menu Photography</span></div>
+    </div>
+    <div class="grid-item reveal reveal-delay-2" data-category="food" data-src="https://static.wixstatic.com/media/55db4c_301bb220447a44fb81a58d0d40433edc~mv2.jpg/v1/fill/w_1200,h_1400,al_c,q_85,enc_avif,quality_auto/55db4c_301bb220447a44fb81a58d0d40433edc~mv2.jpg" data-caption="Restaurant Photography">
+      <img src="https://static.wixstatic.com/media/55db4c_301bb220447a44fb81a58d0d40433edc~mv2.jpg/v1/fill/w_800,h_900,al_c,q_80,enc_avif,quality_auto/55db4c_301bb220447a44fb81a58d0d40433edc~mv2.jpg" alt="Restaurant photography" loading="lazy">
+      <div class="grid-overlay"><span class="grid-label">Restaurant</span></div>
+    </div>
+    <div class="grid-item reveal reveal-delay-1" data-category="food" data-src="https://static.wixstatic.com/media/55db4c_7b46c02b5bda4173837e1fa6f9902f7b~mv2.jpg/v1/fill/w_900,h_1200,al_c,q_85,enc_avif,quality_auto/55db4c_7b46c02b5bda4173837e1fa6f9902f7b~mv2.jpg" data-caption="Artisan Food">
+      <img src="https://static.wixstatic.com/media/55db4c_7b46c02b5bda4173837e1fa6f9902f7b~mv2.jpg/v1/fill/w_600,h_800,al_c,q_80,enc_avif,quality_auto/55db4c_7b46c02b5bda4173837e1fa6f9902f7b~mv2.jpg" alt="Artisan food photography" loading="lazy">
+      <div class="grid-overlay"><span class="grid-label">Artisan Food</span></div>
+    </div>
+    <div class="grid-item reveal reveal-delay-2" data-category="food" data-src="https://static.wixstatic.com/media/55db4c_df0cd1044ebb474f9b165552f96656b5~mv2.jpg/v1/fill/w_1400,h_1000,al_c,q_85,enc_avif,quality_auto/55db4c_df0cd1044ebb474f9b165552f96656b5~mv2.jpg" data-caption="Editorial Food">
+      <img src="https://static.wixstatic.com/media/55db4c_df0cd1044ebb474f9b165552f96656b5~mv2.jpg/v1/fill/w_1000,h_800,al_c,q_80,enc_avif,quality_auto/55db4c_df0cd1044ebb474f9b165552f96656b5~mv2.jpg" alt="Editorial food photography" loading="lazy">
+      <div class="grid-overlay"><span class="grid-label">Editorial</span></div>
+    </div>
+    <div class="grid-item reveal reveal-delay-3" data-category="branding" data-src="https://static.wixstatic.com/media/55db4c_93e9862a35524844ab83c4d7dafdddf8~mv2.jpg/v1/fill/w_1200,h_1400,al_c,q_85,enc_avif,quality_auto/55db4c_93e9862a35524844ab83c4d7dafdddf8~mv2.jpg" data-caption="Branding Photography">
+      <img src="https://static.wixstatic.com/media/55db4c_93e9862a35524844ab83c4d7dafdddf8~mv2.jpg/v1/fill/w_800,h_900,al_c,q_80,enc_avif,quality_auto/55db4c_93e9862a35524844ab83c4d7dafdddf8~mv2.jpg" alt="Branding photography" loading="lazy">
+      <div class="grid-overlay"><span class="grid-label">Branding</span></div>
+    </div>
+    <div class="grid-item reveal" data-category="branding" data-src="https://static.wixstatic.com/media/55db4c_d5e81717269049129f92d26ddbd2d8a8~mv2.jpg/v1/fill/w_1200,h_1000,al_c,q_85,enc_avif,quality_auto/55db4c_d5e81717269049129f92d26ddbd2d8a8~mv2.jpg" data-caption="Brand Story">
+      <img src="https://static.wixstatic.com/media/55db4c_d5e81717269049129f92d26ddbd2d8a8~mv2.jpg/v1/fill/w_900,h_700,al_c,q_80,enc_avif,quality_auto/55db4c_d5e81717269049129f92d26ddbd2d8a8~mv2.jpg" alt="Brand photography" loading="lazy">
+      <div class="grid-overlay"><span class="grid-label">Brand Story</span></div>
+    </div>
+    <div class="grid-item reveal reveal-delay-1" data-category="food" data-src="https://static.wixstatic.com/media/55db4c_6b593677784f4ced8b0f7c22e21777d9~mv2.jpg/v1/fill/w_1200,h_1000,al_c,q_85,enc_avif,quality_auto/55db4c_6b593677784f4ced8b0f7c22e21777d9~mv2.jpg" data-caption="Culinary Photography">
+      <img src="https://static.wixstatic.com/media/55db4c_6b593677784f4ced8b0f7c22e21777d9~mv2.jpg/v1/fill/w_900,h_700,al_c,q_80,enc_avif,quality_auto/55db4c_6b593677784f4ced8b0f7c22e21777d9~mv2.jpg" alt="Culinary photography" loading="lazy">
+      <div class="grid-overlay"><span class="grid-label">Culinary</span></div>
+    </div>
+    <div class="grid-item reveal reveal-delay-2" data-category="branding" data-src="https://static.wixstatic.com/media/55db4c_0c2037bea6f248d2ae9fb0ccb0edf1d4~mv2.jpg/v1/fill/w_1200,h_1000,al_c,q_85,enc_avif,quality_auto/55db4c_0c2037bea6f248d2ae9fb0ccb0edf1d4~mv2.jpg" data-caption="Business Branding">
+      <img src="https://static.wixstatic.com/media/55db4c_0c2037bea6f248d2ae9fb0ccb0edf1d4~mv2.jpg/v1/fill/w_900,h_700,al_c,q_80,enc_avif,quality_auto/55db4c_0c2037bea6f248d2ae9fb0ccb0edf1d4~mv2.jpg" alt="Business branding photography" loading="lazy">
+      <div class="grid-overlay"><span class="grid-label">Business Branding</span></div>
+    </div>
+  </div>
+  <div class="portfolio-more reveal">
+    <a href="food.html" class="btn-primary">Full Food Portfolio</a>
+    <a href="branding.html" class="btn-ghost">View Branding</a>
+  </div>
+</section>
+
+<!-- Marquee -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">Food Photography <span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Branding Photography <span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Ottawa & Gatineau <span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Restaurant Photography <span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Commercial Photographer <span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Menu Photography <span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Food Photography <span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Branding Photography <span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Ottawa & Gatineau <span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Restaurant Photography <span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Commercial Photographer <span class="marquee-dot">✦</span></span>
+    <span class="marquee-item">Menu Photography <span class="marquee-dot">✦</span></span>
+  </div>
+</div>
+
+<!-- About -->
+<section class="about-strip">
+  <div class="about-img-col">
+    <img src="https://static.wixstatic.com/media/55db4c_17fdef0002a54ae1b51d5919ad851222~mv2.jpg/v1/crop/x_32,y_0,w_410,h_512/fill/w_900,h_1100,al_c,q_85,enc_avif,quality_auto/55db4c_17fdef0002a54ae1b51d5919ad851222~mv2.jpg" alt="Kyle Beaulieu, Commercial Photographer in Ottawa">
+  </div>
+  <div class="about-text">
+    <p class="section-label reveal">About Kyle</p>
+    <h2 class="about-heading reveal reveal-delay-1">The eye<br>behind the <em>lens</em></h2>
+    <p class="about-body reveal reveal-delay-2">I'm Kyle Beaulieu — a commercial photographer based in Ottawa and Gatineau, specializing in food and branding imagery that drives real results for businesses.</p>
+    <p class="about-body reveal reveal-delay-2">With a keen eye for light, composition, and the story behind your brand, I create visuals that don't just look beautiful — they work hard for your marketing, menus, and digital presence.</p>
+    <div class="reveal reveal-delay-3">
+      <div class="about-sig">Kyle Beaulieu</div>
+      <div class="about-sig-role">Commercial Photographer · Ottawa & Gatineau</div>
+    </div>
+    <div style="margin-top:36px;" class="reveal reveal-delay-4">
+      <a href="contact.html" class="btn-ghost-dark">Work with me</a>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="services-section">
+  <div class="services-header reveal">
+    <div>
+      <p class="section-label">What I Offer</p>
+      <h2 class="services-heading">Services<br><em style="font-style:italic;color:var(--gold-light)">Built for Impact</em></h2>
+    </div>
+    <p class="services-intro">Every project is a collaboration. I bring technical precision and creative vision — you bring the brand story. Together, we make images that move people and move product.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <span class="service-num">01</span>
+      <h3 class="service-title">Food Photography</h3>
+      <p class="service-desc">Stunning culinary imagery for menus, websites, and social media. Elevate your restaurant, café, or food brand with photography that makes people hungry.</p>
+      <a href="contact.html" class="service-link">Inquire →</a>
+    </div>
+    <div class="service-card reveal reveal-delay-1">
+      <span class="service-num">02</span>
+      <h3 class="service-title">Branding Photography</h3>
+      <p class="service-desc">Authentic imagery that captures the personality and values of your business. Headshots, product, and lifestyle shots — your story, beautifully told.</p>
+      <a href="contact.html" class="service-link">Inquire →</a>
+    </div>
+    <div class="service-card reveal reveal-delay-2">
+      <span class="service-num">03</span>
+      <h3 class="service-title">Content Packages</h3>
+      <p class="service-desc">Ongoing content creation for businesses that need a consistent flow of high-quality imagery for social media, advertising, and marketing materials.</p>
+      <a href="contact.html" class="service-link">Inquire →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Process -->
+<section class="process-section">
+  <div class="process-header reveal">
+    <p class="section-label centered">How It Works</p>
+    <h2 class="process-heading">A seamless <em>creative process</em></h2>
+  </div>
+  <div class="process-steps">
+    <div class="process-step reveal">
+      <div class="step-dot">01</div>
+      <h3 class="step-title">Discovery Call</h3>
+      <p class="step-desc">We talk about your brand, vision, goals, and what a successful shoot looks like for you.</p>
+    </div>
+    <div class="process-step reveal reveal-delay-1">
+      <div class="step-dot">02</div>
+      <h3 class="step-title">Creative Planning</h3>
+      <p class="step-desc">I develop a shot list, mood board, and prop/styling direction tailored to your brand.</p>
+    </div>
+    <div class="process-step reveal reveal-delay-2">
+      <div class="step-dot">03</div>
+      <h3 class="step-title">The Shoot</h3>
+      <p class="step-desc">A focused, professional session designed to deliver exactly what we planned — and more.</p>
+    </div>
+    <div class="process-step reveal reveal-delay-3">
+      <div class="step-dot">04</div>
+      <h3 class="step-title">Delivery</h3>
+      <p class="step-desc">Retouched, gallery-delivered images ready to use across all your platforms and marketing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonial -->
+<section class="testimonial-section">
+  <blockquote class="testimonial-quote reveal">
+    "Kyle's photography completely transformed how our restaurant presents itself online. Our bookings increased within the first month of updating our website with his images."
+  </blockquote>
+  <p class="testimonial-author reveal reveal-delay-1">— Restaurant Client, Ottawa</p>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2 class="cta-heading reveal">Ready to elevate <em>your brand?</em></h2>
+  <div class="reveal reveal-delay-1">
+    <p class="cta-body">Whether you're launching a new restaurant, refreshing your brand identity, or need ongoing content — let's talk about how great photography can work for your business.</p>
+    <a href="mailto:info@photosbykyle.ca" class="cta-email">info@photosbykyle.ca</a>
+    <div class="cta-actions">
+      <a href="contact.html" class="btn-primary">Get in Touch</a>
+      <a href="https://www.instagram.com/kylebeaulieu.photo/" target="_blank" class="btn-ghost">Instagram</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <a href="index.html" class="name">Kyle Beaulieu</a>
+      <div class="subtitle">Commercial Photographer</div>
+    </div>
+    <ul class="footer-nav">
+      <li><a href="food.html">Food</a></li>
+      <li><a href="branding.html">Branding</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="process.html">Process</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="footer-right">
+      <div class="footer-social">
+        <a href="https://www.instagram.com/kylebeaulieu.photo/" target="_blank">Instagram</a>
+        <a href="mailto:info@photosbykyle.ca">Email</a>
+      </div>
+      <div class="footer-location">Ottawa & Gatineau, Canada</div>
+      <p class="footer-copy">© 2025 Kyle Beaulieu Photography</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lb-close">✕ Close</button>
+  <button class="lightbox-prev" id="lb-prev">←</button>
+  <img id="lb-img" src="" alt="">
+  <button class="lightbox-next" id="lb-next">→</button>
+  <p class="lightbox-caption" id="lb-caption"></p>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

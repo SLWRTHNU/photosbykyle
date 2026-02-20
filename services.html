@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photography Services — Kyle Beaulieu | Ottawa & Gatineau</title>
+  <meta name="description" content="Commercial food and branding photography services in Ottawa and Gatineau. Packages, pricing info, and what to expect from a shoot with Kyle Beaulieu.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .services-page { padding: 80px 0 140px; background: var(--charcoal); }
+    .services-intro { padding: 0 80px 80px; max-width: 800px; }
+    .services-intro p {
+      font-size: 16px; line-height: 1.85;
+      color: rgba(245,240,232,0.5); font-weight: 300; margin-top: 20px;
+    }
+    .services-page-heading {
+      font-family: var(--font-serif);
+      font-size: clamp(36px, 4vw, 60px);
+      font-weight: 300; color: var(--cream); line-height: 1.1;
+    }
+    .services-page-heading em { font-style: italic; color: var(--gold-light); }
+
+    /* Service detail cards */
+    .service-detail {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid rgba(245,240,232,0.06);
+    }
+    .service-detail:last-of-type { border-bottom: 1px solid rgba(245,240,232,0.06); }
+    .service-detail-image {
+      position: relative;
+      overflow: hidden;
+      min-height: 480px;
+    }
+    .service-detail-image img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+    .service-detail:hover .service-detail-image img { transform: scale(1.03); }
+    .service-detail-content {
+      padding: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--dark-surface);
+    }
+    .service-detail:nth-child(even) .service-detail-image { order: 2; }
+    .service-detail:nth-child(even) .service-detail-content {
+      order: 1;
+      background: rgba(245,240,232,0.02);
+    }
+    .service-detail-num {
+      font-family: var(--font-serif);
+      font-size: 10px; letter-spacing: 0.4em;
+      color: var(--gold); margin-bottom: 20px;
+    }
+    .service-detail-title {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 3.5vw, 48px);
+      font-weight: 300; color: var(--cream); line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    .service-detail-title em { font-style: italic; color: var(--gold-light); }
+    .service-detail-body {
+      font-size: 14px; line-height: 1.85;
+      color: rgba(245,240,232,0.45); font-weight: 300;
+      margin-bottom: 16px; max-width: 420px;
+    }
+    .service-includes {
+      margin: 28px 0 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .service-include-item {
+      font-size: 12px; color: rgba(245,240,232,0.55);
+      display: flex; align-items: flex-start; gap: 12px; line-height: 1.5;
+    }
+    .service-include-item::before {
+      content: '✦';
+      color: var(--gold);
+      font-size: 8px;
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    /* Pricing note */
+    .pricing-note {
+      padding: 80px;
+      background: var(--charcoal);
+      text-align: center;
+      border-top: 1px solid rgba(245,240,232,0.06);
+    }
+    .pricing-note h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 3vw, 42px);
+      font-weight: 300; color: var(--cream); margin-bottom: 20px;
+    }
+    .pricing-note h2 em { font-style: italic; color: var(--gold); }
+    .pricing-note p {
+      font-size: 14px; line-height: 1.8;
+      color: rgba(245,240,232,0.45); max-width: 560px;
+      margin: 0 auto 36px; font-weight: 300;
+    }
+
+    @media (max-width: 900px) {
+      .services-intro { padding: 0 24px 48px; }
+      .service-detail { grid-template-columns: 1fr; }
+      .service-detail-image { min-height: 55vw; order: 0 !important; }
+      .service-detail-content { padding: 48px 24px; order: 1 !important; }
+      .pricing-note { padding: 60px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <span class="name">Kyle Beaulieu</span>
+    <span class="subtitle">Commercial Photographer</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="food.html">Food</a></li>
+    <li><a href="branding.html">Branding</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="process.html">The Process</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Let's Connect</a>
+  <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile">
+  <a href="food.html">Food</a>
+  <a href="branding.html">Branding</a>
+  <a href="services.html">Services</a>
+  <a href="process.html">The Process</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-bg">
+    <img src="https://static.wixstatic.com/media/55db4c_b7995ab161924cc48f238f896809a05a~mv2.jpg/v1/fill/w_1600,h_900,al_c,q_85,enc_avif,quality_auto/55db4c_b7995ab161924cc48f238f896809a05a~mv2.jpg" alt="Photography services">
+  </div>
+  <div class="page-hero-content">
+    <p class="page-hero-eyebrow">What I Offer</p>
+    <h1>Photography <em>Services</em></h1>
+  </div>
+</div>
+
+<section class="services-page">
+  <div class="services-intro reveal">
+    <p class="section-label">Services</p>
+    <h2 class="services-page-heading">Imagery that works as <em>hard as you do</em></h2>
+    <p>Every service is tailored to your specific goals. Whether you need a single hero shot or a full content library — we build the right scope together.</p>
+  </div>
+
+  <div class="service-detail">
+    <div class="service-detail-image">
+      <img src="https://static.wixstatic.com/media/55db4c_961e2c341eea4deebfd51759a105976d~mv2.jpg/v1/fill/w_900,h_700,al_c,q_85,enc_avif,quality_auto/55db4c_961e2c341eea4deebfd51759a105976d~mv2.jpg" alt="Food photography">
+    </div>
+    <div class="service-detail-content reveal">
+      <p class="service-detail-num">Service 01</p>
+      <h2 class="service-detail-title">Food <em>Photography</em></h2>
+      <p class="service-detail-body">Designed for restaurants, cafés, food artisans, and culinary brands. I create mouth-watering imagery that makes your food impossible to scroll past.</p>
+      <p class="service-detail-body">Whether it's a full menu shoot, a hero image for your website, or seasonal content for social media — every plate gets the star treatment.</p>
+      <div class="service-includes">
+        <div class="service-include-item">Menu & hero dish photography</div>
+        <div class="service-include-item">Restaurant atmosphere & ambiance shots</div>
+        <div class="service-include-item">Food styling guidance included</div>
+        <div class="service-include-item">Fully retouched high-resolution delivery</div>
+        <div class="service-include-item">Commercial usage rights included</div>
+      </div>
+      <a href="contact.html" class="btn-primary">Inquire About Food Photography</a>
+    </div>
+  </div>
+
+  <div class="service-detail">
+    <div class="service-detail-image">
+      <img src="https://static.wixstatic.com/media/55db4c_93e9862a35524844ab83c4d7dafdddf8~mv2.jpg/v1/fill/w_900,h_700,fp_0.67_0.23,al_c,q_85,enc_avif,quality_auto/55db4c_93e9862a35524844ab83c4d7dafdddf8~mv2.jpg" alt="Branding photography">
+    </div>
+    <div class="service-detail-content reveal">
+      <p class="service-detail-num">Service 02</p>
+      <h2 class="service-detail-title">Branding <em>Photography</em></h2>
+      <p class="service-detail-body">For businesses ready to invest in a visual identity that communicates professionalism, personality, and trust. From solopreneurs to growing teams.</p>
+      <p class="service-detail-body">We create a library of on-brand imagery you can deploy across your website, social media, proposals, and marketing materials for months to come.</p>
+      <div class="service-includes">
+        <div class="service-include-item">Professional headshots & team portraits</div>
+        <div class="service-include-item">Behind-the-scenes & workspace photography</div>
+        <div class="service-include-item">Product & lifestyle imagery</div>
+        <div class="service-include-item">Pre-shoot brand strategy call included</div>
+        <div class="service-include-item">Fully retouched high-resolution delivery</div>
+      </div>
+      <a href="contact.html" class="btn-primary">Inquire About Branding Photography</a>
+    </div>
+  </div>
+
+  <div class="service-detail">
+    <div class="service-detail-image">
+      <img src="https://static.wixstatic.com/media/55db4c_d5e81717269049129f92d26ddbd2d8a8~mv2.jpg/v1/fill/w_900,h_700,fp_0.61_0.27,al_c,q_85,enc_avif,quality_auto/55db4c_d5e81717269049129f92d26ddbd2d8a8~mv2.jpg" alt="Content package photography">
+    </div>
+    <div class="service-detail-content reveal">
+      <p class="service-detail-num">Service 03</p>
+      <h2 class="service-detail-title">Content <em>Packages</em></h2>
+      <p class="service-detail-body">For businesses that need a steady stream of fresh, on-brand content without the overhead of booking individual shoots every time.</p>
+      <p class="service-detail-body">Monthly or quarterly packages give you a consistent flow of imagery that keeps your social media, ads, and website looking current and professional year-round.</p>
+      <div class="service-includes">
+        <div class="service-include-item">Monthly or quarterly shoot schedule</div>
+        <div class="service-include-item">Discounted rate vs. individual bookings</div>
+        <div class="service-include-item">Priority scheduling and turnaround</div>
+        <div class="service-include-item">Content planning and shot list collaboration</div>
+        <div class="service-include-item">Formatted for Instagram, web, and print</div>
+      </div>
+      <a href="contact.html" class="btn-primary">Inquire About a Content Package</a>
+    </div>
+  </div>
+</section>
+
+<div class="pricing-note">
+  <h2 class="reveal">Investment & <em>Pricing</em></h2>
+  <p class="reveal reveal-delay-1">Every project is unique, so pricing is based on scope, deliverables, and timeline. I believe in transparent conversations about investment — reach out and I'll send over a detailed quote tailored to your needs.</p>
+  <a href="contact.html" class="btn-primary reveal reveal-delay-2">Get a Custom Quote</a>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <a href="index.html" class="name">Kyle Beaulieu</a>
+      <div class="subtitle">Commercial Photographer</div>
+    </div>
+    <ul class="footer-nav">
+      <li><a href="food.html">Food</a></li>
+      <li><a href="branding.html">Branding</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="process.html">Process</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="footer-right">
+      <div class="footer-social">
+        <a href="https://www.instagram.com/kylebeaulieu.photo/" target="_blank">Instagram</a>
+        <a href="mailto:info@photosbykyle.ca">Email</a>
+      </div>
+      <div class="footer-location">Ottawa & Gatineau, Canada</div>
+      <p class="footer-copy">© 2025 Kyle Beaulieu Photography</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

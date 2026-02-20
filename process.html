@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Process — Kyle Beaulieu Commercial Photography</title>
+  <meta name="description" content="How Kyle Beaulieu approaches a commercial photography project — from discovery call to final image delivery.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .process-page { padding: 80px 0 140px; background: var(--cream); }
+    .process-page-intro { padding: 0 80px 100px; max-width: 700px; }
+    .process-page-heading {
+      font-family: var(--font-serif);
+      font-size: clamp(36px, 4vw, 60px);
+      font-weight: 300; color: var(--charcoal); line-height: 1.1;
+    }
+    .process-page-heading em { font-style: italic; color: var(--gold); }
+    .process-page-intro p {
+      font-size: 16px; line-height: 1.85;
+      color: #6a6560; font-weight: 300; margin-top: 20px;
+    }
+
+    /* Alternating process steps */
+    .process-step-full {
+      display: grid;
+      grid-template-columns: 120px 1fr 1fr;
+      gap: 0;
+      padding: 0 80px 80px;
+      position: relative;
+    }
+    .process-step-full::before {
+      content: '';
+      position: absolute;
+      left: 140px;
+      top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--gold), rgba(196,163,90,0.1));
+    }
+    .step-number-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 4px;
+    }
+    .big-number {
+      font-family: var(--font-serif);
+      font-size: 72px;
+      font-weight: 300;
+      color: rgba(196,163,90,0.2);
+      line-height: 1;
+    }
+    .step-dot-line {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      border: 1px solid var(--gold);
+      background: var(--cream);
+      margin-top: -8px;
+      position: relative;
+      z-index: 1;
+    }
+    .step-text { padding: 8px 60px 0 60px; }
+    .step-text h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 3vw, 42px);
+      font-weight: 300; color: var(--charcoal); margin-bottom: 20px;
+      line-height: 1.1;
+    }
+    .step-text h2 em { font-style: italic; color: var(--gold); }
+    .step-text p {
+      font-size: 14px; line-height: 1.85;
+      color: #6a6560; font-weight: 300; margin-bottom: 12px;
+      max-width: 420px;
+    }
+    .step-details {
+      padding: 8px 0 0;
+    }
+    .step-detail-item {
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(196,163,90,0.15);
+      font-size: 13px;
+      color: #7a7570;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      line-height: 1.5;
+    }
+    .step-detail-item::before {
+      content: '✦';
+      color: var(--gold);
+      font-size: 8px;
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    .process-image-strip {
+      padding: 0 0 100px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4px;
+    }
+    .strip-item {
+      aspect-ratio: 3/4;
+      overflow: hidden;
+    }
+    .strip-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+    .strip-item:hover img { transform: scale(1.05); }
+
+    .process-cta {
+      margin: 0 80px;
+      padding: 80px;
+      background: var(--charcoal);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .process-cta h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 3.5vw, 48px);
+      font-weight: 300; color: var(--cream); line-height: 1.1;
+    }
+    .process-cta h2 em { font-style: italic; color: var(--gold); }
+    .process-cta p {
+      font-size: 14px; line-height: 1.8;
+      color: rgba(245,240,232,0.45); font-weight: 300; margin-bottom: 32px;
+    }
+
+    @media (max-width: 900px) {
+      .process-page-intro { padding: 0 24px 60px; }
+      .process-step-full {
+        grid-template-columns: 1fr;
+        padding: 0 24px 60px;
+      }
+      .process-step-full::before { display: none; }
+      .step-number-col { flex-direction: row; align-items: center; gap: 16px; margin-bottom: 20px; }
+      .step-dot-line { display: none; }
+      .big-number { font-size: 48px; }
+      .step-text { padding: 0; }
+      .step-details { padding: 0; }
+      .process-image-strip { grid-template-columns: 1fr 1fr; }
+      .process-cta { margin: 0 24px; padding: 48px 24px; grid-template-columns: 1fr; gap: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <span class="name">Kyle Beaulieu</span>
+    <span class="subtitle">Commercial Photographer</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="food.html">Food</a></li>
+    <li><a href="branding.html">Branding</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="process.html">The Process</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Let's Connect</a>
+  <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile">
+  <a href="food.html">Food</a>
+  <a href="branding.html">Branding</a>
+  <a href="services.html">Services</a>
+  <a href="process.html">The Process</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-bg">
+    <img src="https://static.wixstatic.com/media/55db4c_374dd0771d48481c97f818d9bf466e6d~mv2.jpg/v1/fill/w_1600,h_900,al_c,q_85,enc_avif,quality_auto/55db4c_374dd0771d48481c97f818d9bf466e6d~mv2.jpg" alt="Photography process">
+  </div>
+  <div class="page-hero-content">
+    <p class="page-hero-eyebrow">How It Works</p>
+    <h1>The <em>Process</em></h1>
+  </div>
+</div>
+
+<section class="process-page">
+  <div class="process-page-intro reveal">
+    <p class="section-label" style="color:var(--gold)">From First Contact to Final Image</p>
+    <h1 class="process-page-heading">A seamless experience <em>from start to finish</em></h1>
+    <p>I've designed every step of the process to be clear, collaborative, and stress-free — so you can focus on your business while I focus on creating imagery that elevates it.</p>
+  </div>
+
+  <div class="process-image-strip">
+    <div class="strip-item reveal">
+      <img src="https://static.wixstatic.com/media/55db4c_719e46fbda0c474993f2279c27f86007~mv2.jpg/v1/fill/w_500,h_700,al_c,q_80,enc_avif,quality_auto/55db4c_719e46fbda0c474993f2279c27f86007~mv2.jpg" alt="" loading="lazy">
+    </div>
+    <div class="strip-item reveal reveal-delay-1">
+      <img src="https://static.wixstatic.com/media/55db4c_5f574954125142fe8bcbe2d45508b2bb~mv2.jpg/v1/fill/w_500,h_700,al_c,q_80,enc_avif,quality_auto/55db4c_5f574954125142fe8bcbe2d45508b2bb~mv2.jpg" alt="" loading="lazy">
+    </div>
+    <div class="strip-item reveal reveal-delay-2">
+      <img src="https://static.wixstatic.com/media/55db4c_201a9ab2dbaf42a280fb2388d293ab30~mv2.jpg/v1/fill/w_500,h_700,al_c,q_80,enc_avif,quality_auto/55db4c_201a9ab2dbaf42a280fb2388d293ab30~mv2.jpg" alt="" loading="lazy">
+    </div>
+    <div class="strip-item reveal reveal-delay-3">
+      <img src="https://static.wixstatic.com/media/55db4c_0c2037bea6f248d2ae9fb0ccb0edf1d4~mv2.jpg/v1/fill/w_500,h_700,fp_0.49_0.23,al_c,q_80,enc_avif,quality_auto/55db4c_0c2037bea6f248d2ae9fb0ccb0edf1d4~mv2.jpg" alt="" loading="lazy">
+    </div>
+  </div>
+
+  <div class="process-step-full reveal">
+    <div class="step-number-col">
+      <span class="big-number">01</span>
+      <div class="step-dot-line"></div>
+    </div>
+    <div class="step-text">
+      <h2>Discovery <em>Call</em></h2>
+      <p>Before anything else, we talk. I want to understand your business, your goals, and what success looks like for this project. This call is free, relaxed, and helps us both make sure we're the right fit.</p>
+      <p>We'll discuss your brand story, the platforms you're creating content for, and any visual references or inspiration you have in mind.</p>
+    </div>
+    <div class="step-details">
+      <div class="step-detail-item">Free 30-minute call — no obligation</div>
+      <div class="step-detail-item">Talk through your brand, goals, and timeline</div>
+      <div class="step-detail-item">I'll send a detailed proposal and quote after</div>
+    </div>
+  </div>
+
+  <div class="process-step-full reveal">
+    <div class="step-number-col">
+      <span class="big-number">02</span>
+      <div class="step-dot-line"></div>
+    </div>
+    <div class="step-text">
+      <h2>Creative <em>Planning</em></h2>
+      <p>Once we've confirmed the project, I develop a full shot plan — including a detailed shot list, mood board, prop and styling direction, and logistics for the shoot day.</p>
+      <p>You'll know exactly what to expect before we ever pick up a camera. No surprises, just great preparation.</p>
+    </div>
+    <div class="step-details">
+      <div class="step-detail-item">Detailed shot list tailored to your goals</div>
+      <div class="step-detail-item">Mood board & visual direction for approval</div>
+      <div class="step-detail-item">Prop sourcing and food styling guidance</div>
+      <div class="step-detail-item">Location scouting if needed</div>
+    </div>
+  </div>
+
+  <div class="process-step-full reveal">
+    <div class="step-number-col">
+      <span class="big-number">03</span>
+      <div class="step-dot-line"></div>
+    </div>
+    <div class="step-text">
+      <h2>The <em>Shoot</em></h2>
+      <p>Shoot day is focused, efficient, and — dare I say — enjoyable. I create a calm, professional environment so your team, food, or products can look their best.</p>
+      <p>We work through the shot list with intention, leaving room to improvise and capture moments that go beyond the plan.</p>
+    </div>
+    <div class="step-details">
+      <div class="step-detail-item">Professional lighting and equipment</div>
+      <div class="step-detail-item">On-set styling and art direction included</div>
+      <div class="step-detail-item">Collaborative — you're welcome to be present</div>
+      <div class="step-detail-item">Previews shared on the day for peace of mind</div>
+    </div>
+  </div>
+
+  <div class="process-step-full reveal">
+    <div class="step-number-col">
+      <span class="big-number">04</span>
+      <div class="step-dot-line"></div>
+    </div>
+    <div class="step-text">
+      <h2>Editing & <em>Delivery</em></h2>
+      <p>After the shoot, I carefully select and retouch the best images from the session. Every delivered file is colour-graded, retouched, and export-ready for your intended use.</p>
+      <p>Images are delivered via a private online gallery within the agreed timeline, formatted for web, print, and social media use.</p>
+    </div>
+    <div class="step-details">
+      <div class="step-detail-item">Professional retouching on all delivered images</div>
+      <div class="step-detail-item">High-resolution files for print and web</div>
+      <div class="step-detail-item">Private online gallery delivery</div>
+      <div class="step-detail-item">Commercial usage rights included</div>
+      <div class="step-detail-item">Typical turnaround: 7–10 business days</div>
+    </div>
+  </div>
+
+  <div class="process-cta reveal">
+    <h2>Ready to get <em>started?</em></h2>
+    <div>
+      <p>The first step is a quick conversation. Reach out and I'll get back to you within one business day to set up a discovery call.</p>
+      <a href="contact.html" class="btn-primary" style="color:var(--charcoal)">Book a Discovery Call</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <a href="index.html" class="name">Kyle Beaulieu</a>
+      <div class="subtitle">Commercial Photographer</div>
+    </div>
+    <ul class="footer-nav">
+      <li><a href="food.html">Food</a></li>
+      <li><a href="branding.html">Branding</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="process.html">Process</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="footer-right">
+      <div class="footer-social">
+        <a href="https://www.instagram.com/kylebeaulieu.photo/" target="_blank">Instagram</a>
+        <a href="mailto:info@photosbykyle.ca">Email</a>
+      </div>
+      <div class="footer-location">Ottawa & Gatineau, Canada</div>
+      <p class="footer-copy">© 2025 Kyle Beaulieu Photography</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

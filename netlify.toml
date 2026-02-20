@@ -1,0 +1,55 @@
+# Netlify configuration for photosbykyle.ca
+
+[build]
+  publish = "."
+
+# Redirect www to non-www (or flip this if you prefer www)
+[[redirects]]
+  from = "https://www.photosbykyle.ca/*"
+  to   = "https://photosbykyle.ca/:splat"
+  status = 301
+  force  = true
+
+# Clean URLs — optional: redirect /food.html to /food
+[[redirects]]
+  from   = "/food.html"
+  to     = "/food"
+  status = 301
+
+[[redirects]]
+  from   = "/branding.html"
+  to     = "/branding"
+  status = 301
+
+[[redirects]]
+  from   = "/services.html"
+  to     = "/services"
+  status = 301
+
+[[redirects]]
+  from   = "/process.html"
+  to     = "/process"
+  status = 301
+
+[[redirects]]
+  from   = "/contact.html"
+  to     = "/contact"
+  status = 301
+
+# Headers for performance and security
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options        = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy        = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
