@@ -32,14 +32,16 @@ a { color: inherit; }
 /* ---- Custom Cursor ---- */
 .cursor {
   position: fixed;
-  width: 8px; height: 8px;
+  width: 10px; height: 10px;
   background: var(--gold);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
+  transition: 0.2 ease;
 }
 .cursor-ring {
+  opacity: 0.5;
   position: fixed;
   width: 36px; height: 36px;
   border: 1px solid rgba(196, 163, 90, 0.5);
