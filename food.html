@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Photography Portfolio | Kyle Beaulieu | Ottawa & Gatineau</title>
+  <meta name="description" content="Commercial food photography for restaurants, chefs, and food brands in Ottawa and Gatineau. View the portfolio of Kyle Beaulieu.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .gallery-section { padding: 80px 0 120px; background: var(--charcoal); }
+    .gallery-intro { padding: 0 48px 60px; }
+    .gallery-intro p {
+      font-size: 15px; line-height: 1.85; color: rgba(245,240,232,0.5);
+      font-weight: 300; max-width: 540px; margin-top: 12px;
+    }
+    .gallery-heading {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 3.5vw, 52px);
+      font-weight: 300; color: var(--cream); line-height: 1.1;
+    }
+    .gallery-heading em { font-style: italic; color: var(--gold-light); }
+
+    /* Full gallery grid, uniform masonry feel */
+    .full-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 4px;
+    }
+    .full-grid .grid-item:nth-child(6n+1)  { grid-column: span 5; aspect-ratio: 4/5; }
+    .full-grid .grid-item:nth-child(6n+2)  { grid-column: span 7; aspect-ratio: 7/5; }
+    .full-grid .grid-item:nth-child(6n+3)  { grid-column: span 4; aspect-ratio: 4/5; }
+    .full-grid .grid-item:nth-child(6n+4)  { grid-column: span 4; aspect-ratio: 4/5; }
+    .full-grid .grid-item:nth-child(6n+5)  { grid-column: span 4; aspect-ratio: 4/5; }
+    .full-grid .grid-item:nth-child(6n+6)  { grid-column: span 8; aspect-ratio: 8/5; }
+
+    .cta-bar {
+      background: var(--dark-surface);
+      padding: 100px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .cta-bar-text h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 3.5vw, 48px);
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.1;
+    }
+    .cta-bar-text h2 em { font-style: italic; color: var(--gold); }
+    .cta-bar-text p {
+      font-size: 14px; line-height: 1.8;
+      color: rgba(245,240,232,0.45); font-weight: 300;
+      max-width: 440px; margin-top: 16px;
+    }
+    .cta-bar-actions { display: flex; gap: 20px; flex-wrap: wrap; }
+
+    @media (max-width: 900px) {
+      .gallery-intro { padding: 0 24px 40px; }
+      .full-grid .grid-item { grid-column: span 6 !important; aspect-ratio: 1/1 !important; }
+      .cta-bar { padding: 60px 24px; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <span class="name">Kyle Beaulieu</span>
+    <span class="subtitle">Commercial Photographer</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="food.html">Food</a></li>
+    <li><a href="branding.html">Branding</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="process.html">The Process</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Let's Connect</a>
+  <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile">
+  <a href="food.html">Food</a>
+  <a href="branding.html">Branding</a>
+  <a href="services.html">Services</a>
+  <a href="process.html">The Process</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<!-- Page Hero -->
+<div class="page-hero">
+  <div class="page-hero-bg">
+    <img src="/images/food_23.webp" alt="Food photography">
+  </div>
+  <div class="page-hero-content">
+    <p class="page-hero-eyebrow">Portfolio</p>
+    <h1>Food <em>Photography</em></h1>
+  </div>
+</div>
+
+<!-- Gallery -->
+<section class="gallery-section">
+  <div class="gallery-intro reveal">
+    <p class="section-label">Culinary Work</p>
+    <h2 class="gallery-heading">Making food <em>irresistible</em></h2>
+    <p>From intimate plated dishes to full restaurant environments, every shot is crafted to make your food the star and your brand unforgettable.</p>
+  </div>
+
+  <div class="full-grid">
+    <!-- 1 (6n+1 = span 5, portrait): Sauce pour action -->
+    <div class="grid-item reveal" data-src="/images/food_23.webp" data-caption="Culinary Detail">
+      <img src="/images/food_23.webp" alt="" loading="lazy">
+    </div>
+    <!-- 2 (6n+2 = span 7, landscape): Canape flatlay -->
+    <div class="grid-item reveal reveal-delay-1" data-src="/images/food_2.webp" data-caption="Event Catering">
+      <img src="/images/food_2.webp" alt="" loading="lazy">
+    </div>
+    <!-- 3 (6n+3 = span 4, portrait): Chocolate roulade side view -->
+    <div class="grid-item reveal reveal-delay-2" data-src="/images/food_16.webp" data-caption="Pastry">
+      <img src="/images/food_16.webp" alt="" loading="lazy">
+    </div>
+    <!-- 4 (6n+4 = span 4, portrait): Tuna fine dining -->
+    <div class="grid-item reveal reveal-delay-3" data-src="/images/food_14.webp" data-caption="Fine Dining">
+      <img src="/images/food_14.webp" alt="" loading="lazy">
+    </div>
+    <!-- 5 (6n+5 = span 4, portrait): Lemon tart with purple sauce -->
+    <div class="grid-item reveal" data-src="/images/food_18.webp" data-caption="Plated Dessert">
+      <img src="/images/food_18.webp" alt="" loading="lazy">
+    </div>
+    <!-- 6 (6n+6 = span 8, landscape): Red cranberry cocktail -->
+    <div class="grid-item reveal reveal-delay-1" data-src="/images/food_8.webp" data-caption="Cocktails">
+      <img src="/images/food_8.webp" alt="" loading="lazy">
+    </div>
+    <!-- 7 (6n+1 = span 5, portrait): Caramel mille-feuille -->
+    <div class="grid-item reveal" data-src="/images/food_19.webp" data-caption="Pastry">
+      <img src="/images/food_19.webp" alt="" loading="lazy">
+    </div>
+    <!-- 8 (6n+2 = span 7, landscape): Aperol spritz wine glass -->
+    <div class="grid-item reveal reveal-delay-1" data-src="/images/food_9.webp" data-caption="Beverages">
+      <img src="/images/food_9.webp" alt="" loading="lazy">
+    </div>
+    <!-- 9 (6n+3 = span 4, portrait): Chocolate roulade overhead -->
+    <div class="grid-item reveal reveal-delay-2" data-src="/images/food_17.webp" data-caption="Plated Dessert">
+      <img src="/images/food_17.webp" alt="" loading="lazy">
+    </div>
+    <!-- 10 (6n+4 = span 4, portrait): Blueberry galette -->
+    <div class="grid-item reveal reveal-delay-3" data-src="/images/food_11.webp" data-caption="Baked Goods">
+      <img src="/images/food_11.webp" alt="" loading="lazy">
+    </div>
+    <!-- 11 (6n+5 = span 4, portrait): Chocolate dessert on black plate -->
+    <div class="grid-item reveal" data-src="/images/food_34.webp" data-caption="Fine Dining">
+      <img src="/images/food_34.webp" alt="" loading="lazy">
+    </div>
+    <!-- 12 (6n+6 = span 8, landscape): Amber cocktail rocks glass -->
+    <div class="grid-item reveal reveal-delay-1" data-src="/images/food_6.webp" data-caption="Cocktails">
+      <img src="/images/food_6.webp" alt="" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-bar">
+  <div class="cta-bar-text reveal">
+    <h2>Hungry for <em>great imagery?</em></h2>
+    <p>Let's create food photography that makes your customers crave what you're serving, before they even walk through the door.</p>
+  </div>
+  <div class="cta-bar-actions reveal reveal-delay-1">
+    <a href="contact.html" class="btn-primary">Book a Shoot</a>
+    <a href="branding.html" class="btn-ghost">See Branding Work</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <a href="index.html" class="name">Kyle Beaulieu</a>
+      <div class="subtitle">Commercial Photographer</div>
+    </div>
+    <ul class="footer-nav">
+      <li><a href="food.html">Food</a></li>
+      <li><a href="branding.html">Branding</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="process.html">Process</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="footer-right">
+      <div class="footer-social">
+        <a href="https://www.instagram.com/kylebeaulieu.photo/" target="_blank">Instagram</a>
+        <a href="mailto:info@photosbykyle.ca">Email</a>
+      </div>
+      <div class="footer-location">Ottawa & Gatineau, Canada</div>
+      <p class="footer-copy">© 2025 Kyle Beaulieu Photography</p>
+    </div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lb-close">✕ Close</button>
+  <button class="lightbox-prev" id="lb-prev">←</button>
+  <img id="lb-img" src="" alt="">
+  <button class="lightbox-next" id="lb-next">→</button>
+  <p class="lightbox-caption" id="lb-caption"></p>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
