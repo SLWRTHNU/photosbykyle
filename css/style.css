@@ -24,6 +24,7 @@ body {
   color: var(--cream);
   cursor: none;
   overflow-x: hidden;
+  min-width: 370px;
 }
 
 img { display: block; max-width: 100%; }
@@ -497,13 +498,14 @@ footer {
 /* ---- Stats Bar ---- */
 .stats-bar {
   background: var(--gold);
-  padding: 20px 48px;
+  padding: 20px 5%;
   display: flex;
-  justify-content: center;
-  gap: 80px;
+  justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
+  gap: 20px;
 }
-.stat { display: flex; align-items: center; gap: 16px; color: var(--charcoal); }
+.stat { display: flex; align-items: center; gap: 16px; color: var(--charcoal); flex: 1; justify-content: center; }
 .stat-number {
   font-family: var(--font-serif);
   font-size: 28px;
@@ -519,7 +521,18 @@ footer {
   max-width: 90px;
   line-height: 1.4;
 }
-.stat-divider { width: 1px; height: 32px; background: rgba(26,24,20,0.2); }
+.stat-divider { width: 1px; height: 32px; background: rgba(26,24,20,0.2); align-self: center; }
+
+@media (max-width: 653px) {
+  .stats-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 24px 5%;
+  }
+  .stat { justify-content: flex-start; }
+  .stat-divider { display: none; }
+}
 
 /* ---- Lightbox ---- */
 .lightbox {
