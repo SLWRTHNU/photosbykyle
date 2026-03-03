@@ -127,46 +127,47 @@
 
     /* ---- Portfolio section ---- */
     .portfolio-section {
-      padding: 120px 0;
-      background: var(--charcoal);
-    }
-    .portfolio-intro {
-      padding: 0 48px;
-      max-width: 640px;
-      margin-bottom: 48px;
-    }
-    .portfolio-heading {
-      font-family: var(--font-serif);
-      font-size: clamp(36px, 4vw, 60px);
-      font-weight: 300;
-      line-height: 1.1;
-      color: var(--cream);
-    }
-    .portfolio-heading em { font-style: italic; color: var(--gold-light); }
-    .tab-row {
-      padding: 0 48px 36px;
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .tab-btn {
-      font-size: 10px;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      padding: 12px 28px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.3s;
-      border: 1px solid rgba(245,240,232,0.15);
-      color: rgba(245,240,232,0.5);
-      cursor: none;
-      background: none;
-      font-family: var(--font-sans);
-    }
-    .tab-btn:hover, .tab-btn.active {
-      border-color: var(--gold);
-      color: var(--gold);
-    }
+  padding: 120px 0;
+  background: var(--charcoal);
+}
+.portfolio-intro {
+  padding: 0 48px;
+  max-width: 640px;
+  margin-bottom: 48px;
+}
+.portfolio-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(36px, 4vw, 60px);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--cream);
+}
+.portfolio-heading em { font-style: italic; color: var(--gold-light); }
+.tab-row {
+  padding: 0 48px 36px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.tab-btn {
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s;
+  border: 1px solid rgba(245,240,232,0.15);
+  color: rgba(245,240,232,0.5);
+  cursor: none;
+  background: none;
+  font-family: var(--font-sans);
+  display: inline-block;
+}
+.tab-btn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
 
     /* Homepage grid layout */
     .grid-item:nth-child(1)  { grid-column: 1 / 6;  grid-row: 1; aspect-ratio: 3/4; }
@@ -560,55 +561,36 @@
     <h2 class="portfolio-heading">Food & <em>Branding</em><br>Photography</h2>
   </div>
   <div class="tab-row reveal reveal-delay-1">
-    <button class="tab-btn active" data-filter="all">All</button>
-    <button class="tab-btn" data-filter="food">Food</button>
-    <button class="tab-btn" data-filter="branding">Branding</button>
+    <a href="food.html" class="tab-btn">Food</a>
+    <a href="branding.html" class="tab-btn">Branding</a>
   </div>
   <div class="portfolio-grid">
-    <!-- 1: Tattoo artist — dark moody branding, portrait -->
-    <div class="grid-item reveal" data-category="branding" data-src="/images/branding_1.webp" data-caption="Branding Photography">
-      <img src="/images/branding_1.webp" alt="Branding photography" loading="lazy">
-      <div class="grid-overlay"><span class="grid-label">Branding</span></div>
+    <div class="grid-item reveal" data-src="/images/branding_1.webp" data-caption="Branding Photography">
+      <img src="/images/branding_1.webp" alt="Tattoo artist branding portrait" loading="lazy">
     </div>
-    <!-- 2: Sauce pour action — elegant food, portrait -->
-    <div class="grid-item reveal reveal-delay-1" data-category="food" data-src="/images/food_23.webp" data-caption="Culinary Photography">
-      <img src="/images/food_23.webp" alt="Food photography" loading="lazy">
-      <div class="grid-overlay"><span class="grid-label">Culinary</span></div>
+    <div class="grid-item reveal reveal-delay-1" data-src="/images/food_23.webp" data-caption="Culinary Photography">
+      <img src="/images/food_23.webp" alt="Sauce pour culinary action shot" loading="lazy">
     </div>
-    <!-- 3: Rogers Centre red chairs / Parliament — landscape branding -->
-    <div class="grid-item reveal reveal-delay-2" data-category="branding" data-src="/images/branding_4.webp" data-caption="Commercial Photography">
-      <img src="/images/branding_4.webp" alt="Commercial photography" loading="lazy">
-      <div class="grid-overlay"><span class="grid-label">Commercial</span></div>
+    <div class="grid-item reveal reveal-delay-2" data-src="/images/branding_4.webp" data-caption="Commercial Photography">
+      <img src="/images/branding_4.webp" alt="Rogers Centre red chairs with Parliament view" loading="lazy">
     </div>
-    <!-- 4: Chocolate roulade with raspberries — portrait food -->
-    <div class="grid-item reveal reveal-delay-1" data-category="food" data-src="/images/food_16.webp" data-caption="Pastry Photography">
-      <img src="/images/food_16.webp" alt="Pastry photography" loading="lazy">
-      <div class="grid-overlay"><span class="grid-label">Pastry</span></div>
+    <div class="grid-item reveal reveal-delay-1" data-src="/images/food_16.webp" data-caption="Pastry Photography">
+      <img src="/images/food_16.webp" alt="Chocolate roulade with raspberries" loading="lazy">
     </div>
-    <!-- 5: 9Round hero pose — cinematic branding, landscape -->
-    <div class="grid-item reveal reveal-delay-2" data-category="branding" data-src="/images/branding_6.webp" data-caption="Brand Photography">
-      <img src="/images/branding_6.webp" alt="Brand photography" loading="lazy">
-      <div class="grid-overlay"><span class="grid-label">Brand Story</span></div>
+    <div class="grid-item reveal reveal-delay-2" data-src="/images/branding_6.webp" data-caption="Brand Photography">
+      <img src="/images/branding_6.webp" alt="9Round fitness hero brand portrait" loading="lazy">
     </div>
-    <!-- 6: Tuna fine dining plate — portrait food -->
-    <div class="grid-item reveal reveal-delay-3" data-category="food" data-src="/images/food_14.webp" data-caption="Fine Dining Photography">
-      <img src="/images/food_14.webp" alt="Fine dining photography" loading="lazy">
-      <div class="grid-overlay"><span class="grid-label">Fine Dining</span></div>
+    <div class="grid-item reveal reveal-delay-3" data-src="/images/food_14.webp" data-caption="Fine Dining Photography">
+      <img src="/images/food_14.webp" alt="Seared tuna fine dining plate" loading="lazy">
     </div>
-    <!-- 7: Laughing chef with flame — branding, landscape -->
-    <div class="grid-item reveal" data-category="branding" data-src="/images/branding_13.webp" data-caption="Chef Photography">
-      <img src="/images/branding_13.webp" alt="Chef photography" loading="lazy">
-      <div class="grid-overlay"><span class="grid-label">Chef Portrait</span></div>
+    <div class="grid-item reveal" data-src="/images/branding_13.webp" data-caption="Chef Photography">
+      <img src="/images/branding_13.webp" alt="Chef laughing with open flame" loading="lazy">
     </div>
-    <!-- 8: Canape flatlay — food, landscape -->
-    <div class="grid-item reveal reveal-delay-1" data-category="food" data-src="/images/food_2.webp" data-caption="Event Food Photography">
-      <img src="/images/food_2.webp" alt="Event food photography" loading="lazy">
-      <div class="grid-overlay"><span class="grid-label">Event Food</span></div>
+    <div class="grid-item reveal reveal-delay-1" data-src="/images/food_2.webp" data-caption="Event Food Photography">
+      <img src="/images/food_2.webp" alt="Canape flatlay event catering" loading="lazy">
     </div>
-    <!-- 9: Smiling chef on stairs — branding, landscape -->
-    <div class="grid-item reveal reveal-delay-2" data-category="branding" data-src="/images/branding_15.webp" data-caption="Chef Portrait">
-      <img src="/images/branding_15.webp" alt="Chef portrait" loading="lazy">
-      <div class="grid-overlay"><span class="grid-label">Chef Portrait</span></div>
+    <div class="grid-item reveal reveal-delay-2" data-src="/images/branding_15.webp" data-caption="Chef Portrait">
+      <img src="/images/branding_15.webp" alt="Chef smiling on restaurant stairs" loading="lazy">
     </div>
   </div>
   <div class="portfolio-more reveal">
