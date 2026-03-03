@@ -5,30 +5,29 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   // ---- Custom Cursor ----
-  const cursor = document.getElementById('cursor');
-  const ring   = document.getElementById('cursor-ring');
-  if (cursor && ring) {
-    let mx = 0, my = 0, rx = 0, ry = 0;
-    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-    (function animateCursor() {
-      if (cursor) { cursor.style.left = mx + 'px'; cursor.style.top = my + 'px'; }
-      rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
-      if (ring) { ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; }
-      requestAnimationFrame(animateCursor);
-    })();
-    document.querySelectorAll('a, button, .grid-item, .tab-btn, label, input, textarea, select').forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        ring.style.width = '52px'; ring.style.height = '52px';
-        ring.style.borderColor = 'rgba(196,163,90,0.8)';
-        cursor.style.opacity = '0';
-      });
-      el.addEventListener('mouseleave', () => {
-        ring.style.width = '36px'; ring.style.height = '36px';
-        ring.style.borderColor = 'rgba(196,163,90,0.5)';
-        cursor.style.opacity = '1';
-      });
+const cursor = document.getElementById('cursor');
+const ring   = document.getElementById('cursor-ring');
+if (cursor && ring) {
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  (function animateCursor() {
+    cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+    rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    requestAnimationFrame(animateCursor);
+  })();
+
+  document.querySelectorAll('a, button, [data-src]').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.classList.add('hidden');
+      ring.classList.add('hidden');
     });
-  }
+    el.addEventListener('mouseleave', () => {
+      cursor.classList.remove('hidden');
+      ring.classList.remove('hidden');
+    });
+  });
+}
 
   // ---- Scrolled Nav ----
   const nav = document.querySelector('nav');
