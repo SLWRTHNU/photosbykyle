@@ -9,8 +9,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <style>
-    .services-page { padding: 80px 0 140px; background: var(--charcoal); }
-    .services-intro { padding: 0 80px 80px; max-width: 800px; }
+    .services-page { padding: 80px 0 0; background: var(--charcoal); }
+    .services-intro { padding: 0 80px 80px; max-width: 620px; }
     .services-intro p {
       font-size: 16px; line-height: 1.85;
       color: rgba(245,240,232,0.5); font-weight: 300; margin-top: 20px;
@@ -46,6 +46,7 @@
       flex-direction: column;
       justify-content: center;
       background: var(--dark-surface);
+      align-items: flex-start;
     }
     .service-detail:nth-child(even) .service-detail-image { order: 2; }
     .service-detail:nth-child(even) .service-detail-content {
@@ -54,38 +55,54 @@
     }
     .service-detail-num {
       font-family: var(--font-serif);
-      font-size: 10px; letter-spacing: 0.4em;
+      font-size: 16px; letter-spacing: 0.4em;
       color: var(--gold); margin-bottom: 20px;
     }
     .service-detail-title {
       font-family: var(--font-serif);
-      font-size: clamp(32px, 3.5vw, 48px);
+      font-size: clamp(36px, 4vw, 60px);
       font-weight: 300; color: var(--cream); line-height: 1.1;
       margin-bottom: 24px;
     }
     .service-detail-title em { font-style: italic; color: var(--gold-light); }
-    .service-detail-body {
-      font-size: 14px; line-height: 1.85;
-      color: rgba(245,240,232,0.45); font-weight: 300;
-      margin-bottom: 16px; max-width: 420px;
-    }
+    .service-detail-body { font-size: 16px; 
+line-height: 1.85;
+color: rgba(245,240,232,0.5); 
+font-weight: 300; 
+margin-top: 20px; }
     .service-includes {
+      color: rgba(245,240,232,0.5); 
+      font-weight: 300; 
       margin: 28px 0 36px;
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
-    .service-include-item {
-      font-size: 12px; color: rgba(245,240,232,0.55);
-      display: flex; align-items: flex-start; gap: 12px; line-height: 1.5;
-    }
+    .service-include-item { font-size: 14px; }
     .service-include-item::before {
-      content: '✦';
+      content: '✦ ';
       color: var(--gold);
-      font-size: 8px;
-      margin-top: 3px;
+      font-size: 14px;
+      margin-top: 2px;
       flex-shrink: 0;
     }
+
+    .service-link {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  background: var(--gold);
+  padding: 16px 36px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s, transform 0.2s;
+  display: inline-block;
+  margin: 36px;
+  text-align: center;
+}
+
+    .service-link:hover { background: var(--gold-light); transform: translateY(-1px); }
 
     /* Pricing note */
     .pricing-note {
@@ -155,11 +172,10 @@
 <section class="services-page">
   <div class="services-intro reveal">
     <p class="section-label">Services</p>
-    <h2 class="services-page-heading">Imagery that works as</h2>
-    <h2 class="services-page-heading"><em>hard as you do</em></h2>
-    <p>Every service is tailored to your specific goals. Whether you need a single hero shot or a full content library, we build the right scope together.</p>
+    <h2 class="services-page-heading">The right image</h2>
+    <h2 class="services-page-heading"><em>changes everything</em></h2>
+<p>Good photography doesn't just look nice. It builds credibility, drives interest, and gives people a reason to reach out.</p>
   </div>
-
   <div class="service-detail">
     <div class="service-detail-image">
       <img src="/images/food_16.webp" alt="Food photography">
@@ -168,7 +184,7 @@
       <p class="service-detail-num">Service 01</p>
       <h2 class="service-detail-title">Food <em>Photography</em></h2>
       <p class="service-detail-body">Designed for restaurants, cafés, food artisans, and culinary brands. I create mouth-watering imagery that makes your food impossible to scroll past.</p>
-      <p class="service-detail-body">Whether it's a full menu shoot, a hero image for your website, or seasonal content for social media, and every plate gets the star treatment.</p>
+      <p class="service-detail-body">Whether it's a full menu shoot, a hero image for your website, or seasonal content for social media, every plate gets the star treatment.</p>
       <div class="service-includes">
         <div class="service-include-item">Menu & hero dish photography</div>
         <div class="service-include-item">Restaurant atmosphere & ambiance shots</div>
@@ -176,7 +192,8 @@
         <div class="service-include-item">Fully retouched high-resolution delivery</div>
         <div class="service-include-item">Commercial usage rights included</div>
       </div>
-      <a href="contact.html" class="service-link">Inquire About Food Photography</a>
+  <a href="contact.html" class="service-link">Inquire About Food Photography</a>
+
     </div>
   </div>
 
@@ -196,7 +213,9 @@
         <div class="service-include-item">Pre-shoot brand strategy call included</div>
         <div class="service-include-item">Fully retouched high-resolution delivery</div>
       </div>
-      <a href="contact.html" class="service-link">Inquire About Branding Photography</a>
+
+<a href="contact.html" class="service-link">Inquire About Branding Photography</a>
+
     </div>
   </div>
 
@@ -216,7 +235,9 @@
         <div class="service-include-item">Content planning and shot list collaboration</div>
         <div class="service-include-item">Formatted for Instagram, web, and print</div>
       </div>
-      <a href="contact.html" class="service-link">Inquire About a Content Package</a>
+
+<a href="contact.html" class="service-link">Inquire About a Content Package</a>
+
     </div>
   </div>
 </section>
