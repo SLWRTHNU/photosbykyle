@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <style>
-    .gallery-section { padding: 80px 0 120px; background: var(--charcoal); }
+    .gallery-section { padding: 80px 0 48px; background: var(--charcoal); }
     .gallery-intro { padding: 0 48px 60px; }
     .gallery-intro p {
       font-size: 15px; line-height: 1.85; color: rgba(245,240,232,0.5);
@@ -22,17 +22,17 @@
       font-weight: 300; color: var(--cream); line-height: 1.1;
     }
     .gallery-heading em { font-style: italic; color: var(--gold-light); }
-    .full-grid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 4px;
-    }
-    .full-grid .grid-item:nth-child(6n+1)  { grid-column: span 7; aspect-ratio: 7/5; }
-    .full-grid .grid-item:nth-child(6n+2)  { grid-column: span 5; aspect-ratio: 4/5; }
-    .full-grid .grid-item:nth-child(6n+3)  { grid-column: span 4; aspect-ratio: 4/5; }
-    .full-grid .grid-item:nth-child(6n+4)  { grid-column: span 4; aspect-ratio: 4/5; }
-    .full-grid .grid-item:nth-child(6n+5)  { grid-column: span 4; aspect-ratio: 4/5; }
-    .full-grid .grid-item:nth-child(6n+6)  { grid-column: span 8; aspect-ratio: 8/5; }
+    .full-grid { display: flex; flex-direction: column; gap: 14px; padding: 0 48px; }
+.grid-row { display: grid; grid-template-columns: 2fr 3fr; gap: 14px; height: 35vw; }
+.grid-row.reverse { grid-template-columns: 3fr 2fr; }
+.grid-row .grid-item { aspect-ratio: unset; height: 100%; }
+
+@media (max-width: 900px) {
+  .full-grid { padding: 0 24px; }
+  .grid-row,
+  .grid-row.reverse { grid-template-columns: 1fr; height: auto; }
+  .grid-row .grid-item { aspect-ratio: 4/3; height: auto; }
+}
 
     .cta-bar {
       background: var(--dark-surface);
@@ -109,57 +109,47 @@
   </div>
 
   <div class="full-grid">
-    <!-- 1 (6n+1 = span 7, landscape): Laughing chef with flame — energy and personality -->
-    <div class="grid-item reveal" data-src="/images/branding_13.webp" data-caption="Chef Portrait">
-      <img src="/images/branding_13.webp" alt="" loading="lazy">
-      <div class="grid-overlay"><span class="grid-label">Chef Portrait</span></div>
+  <div class="grid-row">
+    <div class="grid-item reveal" data-src="/images/branding_13.webp">
+      <img src="/images/branding_13.webp" alt="Chef laughing with open flame" loading="lazy">
     </div>
-    <!-- 2 (6n+2 = span 5, portrait): Tattoo artist — dark moody craft -->
-    <div class="grid-item reveal reveal-delay-1" data-src="/images/branding_1.webp" data-caption="Brand Portrait">
-      <img src="/images/branding_1.webp" alt="" loading="lazy">
-      <div class="grid-overlay"><span class="grid-label">Brand Portrait</span></div>
-    </div>
-    <!-- 3 (6n+3 = span 4, portrait): Smiling chef on stairs — warm and approachable -->
-    <div class="grid-item reveal reveal-delay-2" data-src="/images/branding_15.webp" data-caption="Chef Portrait">
-      <img src="/images/branding_15.webp" alt="" loading="lazy">
-      <div class="grid-overlay"><span class="grid-label">Chef Portrait</span></div>
-    </div>
-    <!-- 4 (6n+4 = span 4, portrait): 9Round hero pose — cinematic -->
-    <div class="grid-item reveal reveal-delay-3" data-src="/images/branding_6.webp" data-caption="Brand Photography">
-      <img src="/images/branding_6.webp" alt="" loading="lazy">
-      <div class="grid-overlay"><span class="grid-label">Brand Photography</span></div>
-    </div>
-    <!-- 5 (6n+5 = span 4, portrait): Two chefs portrait — team/professional -->
-    <div class="grid-item reveal" data-src="/images/branding_17.webp" data-caption="Team Portrait">
-      <img src="/images/branding_17.webp" alt="" loading="lazy">
-      <div class="grid-overlay"><span class="grid-label">Team Portrait</span></div>
-    </div>
-    <!-- 6 (6n+6 = span 8, landscape): Rogers Centre red Muskoka chairs / Parliament view -->
-    <div class="grid-item reveal reveal-delay-1" data-src="/images/branding_4.webp" data-caption="Commercial Photography">
-      <img src="/images/branding_4.webp" alt="" loading="lazy">
-      <div class="grid-overlay"><span class="grid-label">Commercial</span></div>
-    </div>
-    <!-- 7 (6n+1 = span 7, landscape): Rogers Centre night shot / light trails -->
-    <div class="grid-item reveal" data-src="/images/branding_3.webp" data-caption="Architecture & Brand">
-      <img src="/images/branding_3.webp" alt="" loading="lazy">
-      <div class="grid-overlay"><span class="grid-label">Architecture</span></div>
-    </div>
-    <!-- 8 (6n+2 = span 5, portrait): Two Bears coffee can product -->
-    <div class="grid-item reveal reveal-delay-1" data-src="/images/branding_19.webp" data-caption="Product Photography">
-      <img src="/images/branding_19.webp" alt="" loading="lazy">
-      <div class="grid-overlay"><span class="grid-label">Product</span></div>
-    </div>
-    <!-- 9 (6n+3 = span 4, portrait): Chef with large flame — dramatic action -->
-    <div class="grid-item reveal reveal-delay-2" data-src="/images/branding_14.webp" data-caption="Chef Portrait">
-      <img src="/images/branding_14.webp" alt="" loading="lazy">
-      <div class="grid-overlay"><span class="grid-label">Chef Portrait</span></div>
-    </div>
-    <!-- 10 (6n+4 = span 4, portrait): 9Round red gloves detail -->
-    <div class="grid-item reveal reveal-delay-3" data-src="/images/branding_7.webp" data-caption="Brand Detail">
-      <img src="/images/branding_7.webp" alt="" loading="lazy">
-      <div class="grid-overlay"><span class="grid-label">Brand Detail</span></div>
+    <div class="grid-item reveal reveal-delay-1" data-src="/images/branding_1.webp">
+      <img src="/images/branding_1.webp" alt="Tattoo artist branding portrait" loading="lazy">
     </div>
   </div>
+  <div class="grid-row reverse">
+    <div class="grid-item reveal" data-src="/images/branding_15.webp">
+      <img src="/images/branding_15.webp" alt="Chef smiling on restaurant stairs" loading="lazy">
+    </div>
+    <div class="grid-item reveal reveal-delay-1" data-src="/images/branding_6.webp">
+      <img src="/images/branding_6.webp" alt="9Round fitness hero brand portrait" loading="lazy">
+    </div>
+  </div>
+  <div class="grid-row">
+    <div class="grid-item reveal" data-src="/images/branding_17.webp">
+      <img src="/images/branding_17.webp" alt="Two chefs team portrait" loading="lazy">
+    </div>
+    <div class="grid-item reveal reveal-delay-1" data-src="/images/branding_4.webp">
+      <img src="/images/branding_4.webp" alt="Red Muskoka chairs with Parliament view" loading="lazy">
+    </div>
+  </div>
+  <div class="grid-row reverse">
+    <div class="grid-item reveal" data-src="/images/branding_3.webp">
+      <img src="/images/branding_3.webp" alt="Rogers Centre night shot with light trails" loading="lazy">
+    </div>
+    <div class="grid-item reveal reveal-delay-1" data-src="/images/branding_19.webp">
+      <img src="/images/branding_19.webp" alt="Two Bears cold brew coffee can" loading="lazy">
+    </div>
+  </div>
+  <div class="grid-row">
+    <div class="grid-item reveal" data-src="/images/branding_14.webp">
+      <img src="/images/branding_14.webp" alt="Chef with large dramatic flame" loading="lazy">
+    </div>
+    <div class="grid-item reveal reveal-delay-1" data-src="/images/branding_7.webp">
+      <img src="/images/branding_7.webp" alt="9Round red boxing gloves detail" loading="lazy">
+    </div>
+  </div>
+</div>
 </section>
 
 <div class="cta-bar">
