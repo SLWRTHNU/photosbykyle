@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <style>
-    .gallery-section { padding: 80px 0 120px; background: var(--charcoal); }
+    .gallery-section { padding: 80px 0 48px; background: var(--charcoal); }
     .gallery-intro { padding: 0 48px 60px; }
     .gallery-intro p {
       font-size: 15px; line-height: 1.85; color: rgba(245,240,232,0.5);
@@ -23,18 +23,17 @@
     }
     .gallery-heading em { font-style: italic; color: var(--gold-light); }
 
-    /* Full gallery grid — uniform masonry feel */
-    .full-grid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 4px;
-    }
-    .full-grid .grid-item:nth-child(6n+1)  { grid-column: span 5; aspect-ratio: 4/5; }
-    .full-grid .grid-item:nth-child(6n+2)  { grid-column: span 7; aspect-ratio: 7/5; }
-    .full-grid .grid-item:nth-child(6n+3)  { grid-column: span 4; aspect-ratio: 4/5; }
-    .full-grid .grid-item:nth-child(6n+4)  { grid-column: span 4; aspect-ratio: 4/5; }
-    .full-grid .grid-item:nth-child(6n+5)  { grid-column: span 4; aspect-ratio: 4/5; }
-    .full-grid .grid-item:nth-child(6n+6)  { grid-column: span 8; aspect-ratio: 8/5; }
+    .full-grid { display: flex; flex-direction: column; gap: 14px; padding: 0 48px; }
+.grid-row { display: grid; grid-template-columns: 2fr 3fr; gap: 14px; height: 35vw; }
+.grid-row.reverse { grid-template-columns: 3fr 2fr; }
+.grid-row .grid-item { aspect-ratio: unset; height: 100%; }
+
+@media (max-width: 900px) {
+  .full-grid { padding: 0 24px; }
+  .grid-row,
+  .grid-row.reverse { grid-template-columns: 1fr; height: auto; }
+  .grid-row .grid-item { aspect-ratio: 4/3; height: auto; }
+}
 
     .cta-bar {
       background: var(--dark-surface);
@@ -114,55 +113,47 @@
   </div>
 
   <div class="full-grid">
-    <!-- 1 (6n+1 = span 5, portrait): Sauce pour action -->
+  <div class="grid-row">
     <div class="grid-item reveal" data-src="/images/food_23.webp">
-      <img src="/images/food_23.webp" alt="" loading="lazy">
+      <img src="/images/food_23.webp" alt="Sauce being poured over a plated dish" loading="lazy">
     </div>
-    <!-- 2 (6n+2 = span 7, landscape): Canape flatlay -->
     <div class="grid-item reveal reveal-delay-1" data-src="/images/food_2.webp">
-      <img src="/images/food_2.webp" alt="" loading="lazy">
-    </div>
-    <!-- 3 (6n+3 = span 4, portrait): Chocolate roulade side view -->
-    <div class="grid-item reveal reveal-delay-2" data-src="/images/food_16.webp">
-      <img src="/images/food_16.webp" alt="" loading="lazy">
-    </div>
-    <!-- 4 (6n+4 = span 4, portrait): Tuna fine dining -->
-    <div class="grid-item reveal reveal-delay-3" data-src="/images/food_14.webp">
-      <img src="/images/food_14.webp" alt="" loading="lazy">
-    </div>
-    <!-- 5 (6n+5 = span 4, portrait): Lemon tart with purple sauce -->
-    <div class="grid-item reveal" data-src="/images/food_18.webp">
-      <img src="/images/food_18.webp" alt="" loading="lazy">
-    </div>
-    <!-- 6 (6n+6 = span 8, landscape): Red cranberry cocktail -->
-    <div class="grid-item reveal reveal-delay-1" data-src="/images/food_8.webp">
-      <img src="/images/food_8.webp" alt="" loading="lazy">
-    </div>
-    <!-- 7 (6n+1 = span 5, portrait): Caramel mille-feuille -->
-    <div class="grid-item reveal" data-src="/images/food_19.webp">
-      <img src="/images/food_19.webp" alt="" loading="lazy">
-    </div>
-    <!-- 8 (6n+2 = span 7, landscape): Aperol spritz wine glass -->
-    <div class="grid-item reveal reveal-delay-1" data-src="/images/food_9.webp">
-      <img src="/images/food_9.webp" alt="" loading="lazy">
-    </div>
-    <!-- 9 (6n+3 = span 4, portrait): Chocolate roulade overhead -->
-    <div class="grid-item reveal reveal-delay-2" data-src="/images/food_17.webp">
-      <img src="/images/food_17.webp" alt="" loading="lazy">
-    </div>
-    <!-- 10 (6n+4 = span 4, portrait): Blueberry galette -->
-    <div class="grid-item reveal reveal-delay-3" data-src="/images/food_11.webp">
-      <img src="/images/food_11.webp" alt="" loading="lazy">
-    </div>
-    <!-- 11 (6n+5 = span 4, portrait): Chocolate dessert on black plate -->
-    <div class="grid-item reveal" data-src="/images/food_34.webp">
-      <img src="/images/food_34.webp" alt="" loading="lazy">
-    </div>
-    <!-- 12 (6n+6 = span 8, landscape): Amber cocktail rocks glass -->
-    <div class="grid-item reveal reveal-delay-1" data-src="/images/food_6.webp">
-      <img src="/images/food_6.webp" alt="" loading="lazy">
+      <img src="/images/food_2.webp" alt="Canape flatlay for event catering" loading="lazy">
     </div>
   </div>
+  <div class="grid-row reverse">
+    <div class="grid-item reveal" data-src="/images/food_16.webp">
+      <img src="/images/food_16.webp" alt="Chocolate roulade with raspberries" loading="lazy">
+    </div>
+    <div class="grid-item reveal reveal-delay-1" data-src="/images/food_14.webp">
+      <img src="/images/food_14.webp" alt="Seared tuna fine dining plate" loading="lazy">
+    </div>
+  </div>
+  <div class="grid-row">
+    <div class="grid-item reveal" data-src="/images/food_18.webp">
+      <img src="/images/food_18.webp" alt="Lemon tart with purple sauce" loading="lazy">
+    </div>
+    <div class="grid-item reveal reveal-delay-1" data-src="/images/food_8.webp">
+      <img src="/images/food_8.webp" alt="Red cranberry cocktail" loading="lazy">
+    </div>
+  </div>
+  <div class="grid-row reverse">
+    <div class="grid-item reveal" data-src="/images/food_19.webp">
+      <img src="/images/food_19.webp" alt="Caramel mille-feuille pastry" loading="lazy">
+    </div>
+    <div class="grid-item reveal reveal-delay-1" data-src="/images/food_9.webp">
+      <img src="/images/food_9.webp" alt="Aperol spritz in wine glass" loading="lazy">
+    </div>
+  </div>
+  <div class="grid-row">
+    <div class="grid-item reveal" data-src="/images/food_11.webp">
+      <img src="/images/food_11.webp" alt="Blueberry galette on wooden surface" loading="lazy">
+    </div>
+    <div class="grid-item reveal reveal-delay-1" data-src="/images/food_34.webp">
+      <img src="/images/food_34.webp" alt="Chocolate dessert on black plate" loading="lazy">
+    </div>
+  </div>
+</div>
 </section>
 
 <!-- CTA -->
