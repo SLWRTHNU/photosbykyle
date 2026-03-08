@@ -22,33 +22,20 @@
   <link rel="stylesheet" href="css/style.css">
   <style>
     /* ---- Process page ---- */
-    .process-page { background: var(--charcoal); }
+    .process-page { padding: 40px 0 0; background: var(--charcoal); }
 
-    /* Intro transition bar */
-    .process-intro-bar {
-      padding: 72px 80px 64px;
-      display: flex;
-      align-items: center;
-      gap: 32px;
-    }
-    .intro-label {
-      font-size: 9px;
-      letter-spacing: 0.55em;
-      text-transform: uppercase;
-      color: rgba(245,240,232,0.28);
-      white-space: nowrap;
-    }
-    .intro-rule {
-      flex: 1;
-      height: 1px;
-      background: rgba(245,240,232,0.07);
-    }
-    .intro-count {
+    /* Intro section */
+    .process-page-intro { padding: 0 80px 80px; }
+    .process-page-heading {
       font-family: var(--font-serif);
-      font-size: 13px;
-      letter-spacing: 0.3em;
-      color: rgba(196,163,90,0.45);
-      white-space: nowrap;
+      font-size: clamp(36px, 4vw, 60px);
+      font-weight: 300; color: var(--cream); line-height: 1.1;
+    }
+    .process-page-heading em { font-style: italic; color: var(--gold); }
+    .process-page-intro p {
+      font-size: 16px; line-height: 1.85;
+      color: rgba(245,240,232,0.5); font-weight: 300; margin-top: 20px;
+      max-width: 45%;
     }
 
     /* Step sections */
@@ -219,7 +206,8 @@
 
     /* Mobile */
     @media (max-width: 900px) {
-      .process-intro-bar { padding: 48px 24px 40px; }
+      .process-page-intro { padding: 0 24px 60px; }
+      .process-page-intro p { max-width: 100%; }
       .process-step { flex-direction: column; min-height: auto; }
       .process-step .step-img-col,
       .process-step.flip .step-img-col {
@@ -286,10 +274,10 @@
 
 <section class="process-page">
 
-  <div class="process-intro-bar reveal">
-    <span class="intro-label">How We Work Together</span>
-    <div class="intro-rule"></div>
-    <span class="intro-count">Four Steps</span>
+  <div class="process-page-intro reveal">
+    <p class="section-label" style="color:var(--gold)">From First Contact to Final Image</p>
+    <h2 class="process-page-heading">Every detail, <em>considered.</em></h2>
+    <p>A process built around preparation, transparency, and craft — so you can focus on your business while I focus on making imagery that honours the same care and attention to detail you put into yours.</p>
   </div>
 
   <!-- Step 01 -->
