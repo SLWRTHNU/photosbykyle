@@ -14,6 +14,7 @@
   --dark-surface: #141210;
   --font-serif: 'Cormorant Garamond', serif;
   --font-sans: 'DM Sans', sans-serif;
+  --numbers: 'Cormorant', serif;
 }
 
 html { scroll-behavior: smooth; }
@@ -293,6 +294,7 @@ nav.scrolled::before { opacity: 0; }
   align-items: center;
   gap: 16px;
   margin-bottom: 20px;
+  width: 100%;
 }
 .section-label::before {
   content: '';
