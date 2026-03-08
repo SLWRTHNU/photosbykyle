@@ -17,7 +17,8 @@ if (cursor && ring) {
     requestAnimationFrame(animateCursor);
   })();
 
-  document.querySelectorAll('a, button, [data-src]').forEach(el => {
+  // Links and buttons: hide custom cursor so native pointer shows
+  document.querySelectorAll('a, button').forEach(el => {
     el.addEventListener('mouseenter', () => {
       cursor.classList.add('hidden');
       ring.classList.add('hidden');
@@ -26,6 +27,12 @@ if (cursor && ring) {
       cursor.classList.remove('hidden');
       ring.classList.remove('hidden');
     });
+  });
+
+  // Gallery items: expand ring to signal clickability
+  document.querySelectorAll('[data-src]').forEach(el => {
+    el.addEventListener('mouseenter', () => ring.classList.add('expand'));
+    el.addEventListener('mouseleave', () => ring.classList.remove('expand'));
   });
 }
 

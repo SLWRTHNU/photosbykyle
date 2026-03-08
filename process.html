@@ -6,6 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Process | Kyle Beaulieu Commercial Photography</title>
   <meta name="description" content="How Kyle Beaulieu approaches a commercial photography project, from discovery call to final image delivery.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://photosbykyle.ca/process">
+  <meta property="og:title" content="The Process | Kyle Beaulieu Commercial Photography">
+  <meta property="og:description" content="From discovery call to final image delivery, here is how Kyle Beaulieu approaches every commercial photography project.">
+  <meta property="og:image" content="https://photosbykyle.ca/images/food_23.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Process | Kyle Beaulieu Commercial Photography">
+  <meta name="twitter:description" content="From discovery call to final image delivery, here is how Kyle Beaulieu approaches every commercial photography project.">
+  <meta name="twitter:image" content="https://photosbykyle.ca/images/food_23.webp">
+  <link rel="canonical" href="https://photosbykyle.ca/process">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
@@ -23,28 +33,21 @@
       color: rgba(245,240,232,0.5); font-weight: 300; margin-top: 20px;
     }
 
-    /* Alternating process steps */
+    /* Process steps — aligned layout */
     .process-step-full {
       display: grid;
       grid-template-columns: 120px 1fr 1fr;
+      grid-template-rows: auto auto;
       gap: 0;
       padding: 0 80px 80px;
-      position: relative;
     }
-    .process-step-full::before {
-      content: '';
-      position: absolute;
-      left: 140px;
-      top: 90px; bottom: 0;
-      width: 1px;
-      background: linear-gradient(to bottom, var(--gold), rgba(196,163,90,0));
-      opacity: 0.5;
-    }
+
+    /* Row 1: number (bottom-aligned) + title (bottom-aligned) */
     .step-number-col {
+      grid-row: 1;
+      grid-column: 1;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-top: 4px;
+      align-items: flex-end;
     }
     .big-number {
       font-family: var(--numbers);
@@ -52,33 +55,50 @@
       font-weight: 300;
       color: rgba(196,163,90,0.5);
       line-height: 1;
-      margin-top: -17px;
-    }
-    .step-dot-line {
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      border: 10px solid var(--gold);
-      background: var(--charcoal);
-      margin-top: 15px;
       position: relative;
-      z-index: 1;
-      opacity: 0.5;
     }
-    .step-text { padding: 8px 60px 0 60px; }
-    .step-text h2 {
+    /* Decorative gold rule under each step number */
+    .big-number::after {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+      margin-top: 10px;
+      opacity: 0.65;
+    }
+    .step-title-main {
+      grid-row: 1;
+      grid-column: 2;
+      align-self: end;
       font-family: var(--font-serif);
       font-size: clamp(28px, 3vw, 42px);
-      font-weight: 300; color: var(--cream); margin-bottom: 20px;
+      font-weight: 300;
+      color: var(--cream);
       line-height: 1.1;
+      padding: 0 0 0 60px;
     }
-    .step-text h2 em { font-style: italic; color: var(--gold); }
-    .step-text p {
+    .step-title-main em { font-style: italic; color: var(--gold); }
+    .step-col-empty { grid-row: 1; grid-column: 3; }
+
+    /* Row 2: body text + detail list, tops aligned */
+    .step-number-spacer { grid-row: 2; grid-column: 1; }
+    .step-body {
+      grid-row: 2;
+      grid-column: 2;
+      padding: 28px 60px 0;
+      align-self: start;
+    }
+    .step-body p {
       font-size: 14px; line-height: 1.85;
       color: rgba(245,240,232,0.5); font-weight: 300; margin-bottom: 12px;
       max-width: 420px;
     }
     .step-details {
-      padding: 8px 0 0;
+      grid-row: 2;
+      grid-column: 3;
+      padding: 28px 0 0;
+      align-self: start;
     }
     .step-detail-item {
       padding: 16px 0;
@@ -137,16 +157,18 @@
       .process-page-intro { padding: 0 24px 60px; }
       .process-step-full {
         grid-template-columns: 1fr;
-        padding: 0 24px 0;
+        grid-template-rows: auto;
+        padding: 0 24px 60px;
       }
-      .process-step-full::before { display: none; }
-      .step-number-col { flex-direction: row; align-items: center; gap: 16px; margin-bottom: 20px; }
-      .step-dot-line { display: none; }
+      .step-number-col { grid-row: auto; grid-column: 1; align-items: center; margin-bottom: 4px; }
       .big-number { font-size: 48px; }
-      .step-text { padding: 0; }
-      .step-details { padding: 0; }
+      .step-title-main { grid-row: auto; grid-column: 1; align-self: auto; padding: 0 0 16px; }
+      .step-col-empty { display: none; }
+      .step-number-spacer { display: none; }
+      .step-body { grid-row: auto; grid-column: 1; padding: 0; align-self: auto; }
+      .step-details { grid-row: auto; grid-column: 1; padding: 12px 0 0; align-self: auto; }
       .process-image-strip { grid-template-columns: 1fr 1fr; }
-      .process-cta { margin: 0 24px; padding: 48px 24px; grid-template-columns: 1fr; gap: 32px; }
+      .process-cta { margin: 0 24px; padding: 48px 24px; gap: 32px; }
     }
   </style>
 </head>
@@ -210,12 +232,11 @@
   </div>
 
   <div class="process-step-full reveal">
-    <div class="step-number-col">
-      <span class="big-number">01</span>
-      <div class="step-dot-line"></div>
-    </div>
-    <div class="step-text">
-      <h2>Discovery <em>Call</em></h2>
+    <div class="step-number-col"><span class="big-number">01</span></div>
+    <h2 class="step-title-main">Discovery <em>Call</em></h2>
+    <div class="step-col-empty"></div>
+    <div class="step-number-spacer"></div>
+    <div class="step-body">
       <p>Before anything else, we talk. I want to understand your business, your goals, and what success looks like for this project. This call is free, relaxed, and helps us both make sure we're the right fit.</p>
       <p>We'll discuss your brand story, the platforms you're creating content for, and any visual references or inspiration you have in mind.</p>
     </div>
@@ -227,12 +248,11 @@
   </div>
 
   <div class="process-step-full reveal">
-    <div class="step-number-col">
-      <span class="big-number">02</span>
-      <div class="step-dot-line"></div>
-    </div>
-    <div class="step-text">
-      <h2>Creative <em>Planning</em></h2>
+    <div class="step-number-col"><span class="big-number">02</span></div>
+    <h2 class="step-title-main">Creative <em>Planning</em></h2>
+    <div class="step-col-empty"></div>
+    <div class="step-number-spacer"></div>
+    <div class="step-body">
       <p>Once we've confirmed the project, I develop a full shot plan, including a detailed shot list, mood board, prop and styling direction, and logistics for the shoot day.</p>
       <p>You'll know exactly what to expect before we ever pick up a camera. No surprises, just great preparation.</p>
     </div>
@@ -245,12 +265,11 @@
   </div>
 
   <div class="process-step-full reveal">
-    <div class="step-number-col">
-      <span class="big-number">03</span>
-      <div class="step-dot-line"></div>
-    </div>
-    <div class="step-text">
-      <h2>The <em>Shoot</em></h2>
+    <div class="step-number-col"><span class="big-number">03</span></div>
+    <h2 class="step-title-main">The <em>Shoot</em></h2>
+    <div class="step-col-empty"></div>
+    <div class="step-number-spacer"></div>
+    <div class="step-body">
       <p>Shoot day is focused, efficient, and genuinely enjoyable. I create a calm, professional environment so your team, food, or products can look their best.</p>
       <p>We work through the shot list with intention, leaving room to improvise and capture moments that go beyond the plan.</p>
     </div>
@@ -263,12 +282,11 @@
   </div>
 
   <div class="process-step-full reveal">
-    <div class="step-number-col">
-      <span class="big-number">04</span>
-      <div class="step-dot-line"></div>
-    </div>
-    <div class="step-text">
-      <h2>Editing & <em>Delivery</em></h2>
+    <div class="step-number-col"><span class="big-number">04</span></div>
+    <h2 class="step-title-main">Editing & <em>Delivery</em></h2>
+    <div class="step-col-empty"></div>
+    <div class="step-number-spacer"></div>
+    <div class="step-body">
       <p>After the shoot, I carefully select and retouch the best images from the session. Every delivered file is colour-graded, retouched, and export-ready for your intended use.</p>
       <p>Images are delivered via a private online gallery within the agreed timeline, formatted for web, print, and social media use.</p>
     </div>
