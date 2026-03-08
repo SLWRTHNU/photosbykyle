@@ -706,6 +706,12 @@ footer {
 }
 .form-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
 
+/* ---- Touch devices: hide custom cursor ---- */
+@media (hover: none) {
+  body { cursor: auto; }
+  .cursor, .cursor-ring { display: none !important; }
+}
+
 /* ---- Responsive ---- */
 @media (max-width: 900px) {
   nav { padding: 20px 24px; }

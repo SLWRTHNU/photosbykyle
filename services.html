@@ -17,6 +17,7 @@
   <meta name="twitter:image" content="https://photosbykyle.ca/images/food_23.webp">
   <link rel="canonical" href="https://photosbykyle.ca/services">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <style>
@@ -31,6 +32,7 @@
     .services-intro p {
       font-size: 16px; line-height: 1.85;
       color: rgba(245,240,232,0.5); font-weight: 300; margin-top: 20px;
+      max-width: 45%;
     }
 
     /* Service detail cards */
@@ -109,7 +111,7 @@ margin-top: 20px; }
   font-weight: 500;
   transition: background 0.3s, transform 0.2s;
   display: inline-block;
-  margin: 36px;
+  margin-top: 36px;
   text-align: center;
 }
 
@@ -167,6 +169,7 @@ margin-top: 20px; }
 
     @media (max-width: 900px) {
       .services-intro { padding: 0 24px 48px; }
+      .services-intro p { max-width: 100%; }
       .service-detail { grid-template-columns: 1fr; }
       .service-detail-image { min-height: 55vw; order: 0 !important; }
       .service-detail-content { padding: 48px 24px; order: 1 !important; }
@@ -216,7 +219,7 @@ margin-top: 20px; }
   <div class="services-intro reveal">
     <p class="section-label" style="color:var(--gold)">Your vision paired with precise execution</p>
     <h2 class="services-page-heading">Imagery built with <em>intention</em></h2>
-    <p style="max-width: 45%;">The right image builds credibility, drives interest, and gives people a reason to reach out. It's the difference between a brand that gets noticed and one that gets remembered.</p>
+    <p>The right image builds credibility, drives interest, and gives people a reason to reach out. It's the difference between a brand that gets noticed and one that gets remembered.</p>
   </div>
   <div class="service-detail">
     <div class="service-detail-image">

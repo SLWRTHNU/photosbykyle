@@ -17,6 +17,7 @@
   <meta name="twitter:image" content="https://photosbykyle.ca/images/branding_13.webp">
   <link rel="canonical" href="https://photosbykyle.ca/branding">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <style>
@@ -31,6 +32,7 @@
     .gallery-intro p {
       font-size: 16px; line-height: 1.85;
       color: rgba(245,240,232,0.5); font-weight: 300; margin-top: 20px;
+      max-width: 45%;
     }
 
     .full-grid { display: flex; flex-direction: column; gap: 14px; padding: 0 48px; }
@@ -69,6 +71,7 @@
 
     @media (max-width: 900px) {
       .gallery-intro { padding: 0 24px 40px; }
+      .gallery-intro p { max-width: 100%; }
       .full-grid .grid-item { grid-column: span 6 !important; aspect-ratio: 1/1 !important; }
       .cta-bar { padding: 60px 24px; flex-direction: column; }
     }
@@ -116,7 +119,7 @@
   <div class="gallery-intro reveal">
     <p class="section-label" style="color:var(--gold)">Your brand has a story worth telling</p>
     <h2 class="gallery-heading">Your identity <em>made visible</em></h2>
-    <p style="max-width: 45%;">Authentic imagery built to communicate your brand's personality and turn the right people into clients.</p>
+    <p>Authentic imagery built to communicate your brand's personality and turn the right people into clients.</p>
   </div>
 
   <div class="full-grid">
@@ -167,6 +170,14 @@
     </div>
     <div class="grid-item reveal reveal-delay-1" data-src="/images/branding_31.webp">
       <img src="/images/branding_31.webp" alt="Professional businessman smiling in modern architectural interior environment" loading="lazy">
+    </div>
+  </div>
+  <div class="grid-row">
+    <div class="grid-item reveal" data-src="/images/branding_.webp">
+      <img src="/images/branding_.webp" alt="9Round fitness brand portrait of a boxer in a red branded shirt with dramatic studio lighting in a boxing gym" loading="lazy">
+    </div>
+    <div class="grid-item reveal reveal-delay-1" data-src="/images/branding_13.webp">
+      <img src="/images/branding_13.webp" alt="Business owner reviewing coffee brand website design on laptop" loading="lazy">
     </div>
   </div>
 </div>

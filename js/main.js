@@ -122,24 +122,4 @@ if (cursor && ring) {
     if (e.key === 'ArrowRight') showNext();
   });
 
-  // ---- Portfolio Tab Filter (index page) ----
-  const tabBtns = document.querySelectorAll('.tab-btn[data-filter]');
-  const gridItems = document.querySelectorAll('.grid-item[data-category]');
-  if (tabBtns.length) {
-    tabBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        tabBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.dataset.filter;
-        gridItems.forEach(item => {
-          if (filter === 'all' || item.dataset.category === filter) {
-            item.style.display = '';
-          } else {
-            item.style.display = 'none';
-          }
-        });
-      });
-    });
-  }
-
 });
