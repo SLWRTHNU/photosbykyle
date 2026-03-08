@@ -17,7 +17,8 @@ if (cursor && ring) {
     requestAnimationFrame(animateCursor);
   })();
 
-  document.querySelectorAll('a, button, [data-src]').forEach(el => {
+  // Links, buttons, and text fields: hide custom cursor so native cursor shows
+  document.querySelectorAll('a, button, input, textarea, select').forEach(el => {
     el.addEventListener('mouseenter', () => {
       cursor.classList.add('hidden');
       ring.classList.add('hidden');
@@ -26,6 +27,12 @@ if (cursor && ring) {
       cursor.classList.remove('hidden');
       ring.classList.remove('hidden');
     });
+  });
+
+  // Gallery items: expand ring to signal clickability
+  document.querySelectorAll('[data-src]').forEach(el => {
+    el.addEventListener('mouseenter', () => ring.classList.add('expand'));
+    el.addEventListener('mouseleave', () => ring.classList.remove('expand'));
   });
 }
 
@@ -87,6 +94,8 @@ if (cursor && ring) {
     currentIndex = index;
     const item = galleryItems[index];
     lbImg.src = item.dataset.src;
+    const thumbImg = item.querySelector('img');
+    lbImg.alt = thumbImg ? thumbImg.alt : (item.dataset.caption || '');
     if (lbCaption) lbCaption.textContent = item.dataset.caption || '';
     lightbox.classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -112,25 +121,5 @@ if (cursor && ring) {
     if (e.key === 'ArrowLeft') showPrev();
     if (e.key === 'ArrowRight') showNext();
   });
-
-  // ---- Portfolio Tab Filter (index page) ----
-  const tabBtns = document.querySelectorAll('.tab-btn[data-filter]');
-  const gridItems = document.querySelectorAll('.grid-item[data-category]');
-  if (tabBtns.length) {
-    tabBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        tabBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.dataset.filter;
-        gridItems.forEach(item => {
-          if (filter === 'all' || item.dataset.category === filter) {
-            item.style.display = '';
-          } else {
-            item.style.display = 'none';
-          }
-        });
-      });
-    });
-  }
 
 });
