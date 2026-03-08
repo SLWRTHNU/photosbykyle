@@ -17,8 +17,8 @@ if (cursor && ring) {
     requestAnimationFrame(animateCursor);
   })();
 
-  // Links and buttons: hide custom cursor so native pointer shows
-  document.querySelectorAll('a, button').forEach(el => {
+  // Links, buttons, and text fields: hide custom cursor so native cursor shows
+  document.querySelectorAll('a, button, input, textarea, select').forEach(el => {
     el.addEventListener('mouseenter', () => {
       cursor.classList.add('hidden');
       ring.classList.add('hidden');
