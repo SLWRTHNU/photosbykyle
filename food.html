@@ -10,18 +10,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <style>
-    .gallery-section { padding: 80px 0 48px; background: var(--charcoal); }
-    .gallery-intro { padding: 0 48px 60px; }
-    .gallery-intro p {
-      font-size: 15px; line-height: 1.85; color: rgba(245,240,232,0.5);
-      font-weight: 300; max-width: 540px; margin-top: 12px;
-    }
+    .gallery-section { padding: 40px 0 48px; background: var(--charcoal); }
+        .gallery-intro { padding: 0 80px 80px; }
     .gallery-heading {
       font-family: var(--font-serif);
-      font-size: clamp(32px, 3.5vw, 52px);
+      font-size: clamp(36px, 4vw, 60px);
       font-weight: 300; color: var(--cream); line-height: 1.1;
     }
-    .gallery-heading em { font-style: italic; color: var(--gold-light); }
+    .gallery-heading em { font-style: italic; color: var(--gold); }
+    .gallery-intro p {
+      font-size: 16px; line-height: 1.85;
+      color: rgba(245,240,232,0.5); font-weight: 300; margin-top: 20px;
+    }
 
     .full-grid { display: flex; flex-direction: column; gap: 14px; padding: 0 48px; }
 .grid-row { display: grid; grid-template-columns: 2fr 3fr; gap: 14px; height: 35vw; }
@@ -107,9 +107,9 @@
 <!-- Gallery -->
 <section class="gallery-section">
   <div class="gallery-intro reveal">
-    <p class="section-label">Culinary Work</p>
-    <h2 class="gallery-heading">Making food <em>irresistible</em></h2>
-    <p>From intimate plated dishes to full restaurant environments, every shot is crafted to make your food the star and your brand unforgettable.</p>
+    <p class="section-label" style="color:var(--gold)">Mise en place from kitchen to frame</p>
+    <h2 class="gallery-heading">Your creation in <em>every detail</em></h2>
+    <p style="max-width: 45%;">Every shot is crafted to put your food front and centre, from intimate plated dishes to full restaurant environments.</p>
   </div>
 
   <div class="full-grid">
