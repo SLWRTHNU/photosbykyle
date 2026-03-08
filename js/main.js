@@ -87,6 +87,8 @@ if (cursor && ring) {
     currentIndex = index;
     const item = galleryItems[index];
     lbImg.src = item.dataset.src;
+    const thumbImg = item.querySelector('img');
+    lbImg.alt = thumbImg ? thumbImg.alt : (item.dataset.caption || '');
     if (lbCaption) lbCaption.textContent = item.dataset.caption || '';
     lightbox.classList.add('open');
     document.body.style.overflow = 'hidden';

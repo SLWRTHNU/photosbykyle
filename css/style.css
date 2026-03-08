@@ -175,7 +175,7 @@ nav.scrolled::before { opacity: 0; }
   z-index: 1;
   flex-direction: column;
   gap: 5px;
-  cursor: none;
+  cursor: pointer;
   background: none;
   border: none;
   padding: 4px;
@@ -576,7 +576,7 @@ footer {
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: rgba(245,240,232,0.5);
-  cursor: none;
+  cursor: pointer;
   background: none;
   border: none;
   transition: color 0.3s;
@@ -592,7 +592,7 @@ footer {
   font-size: 18px;
   width: 52px; height: 52px;
   display: flex; align-items: center; justify-content: center;
-  cursor: none;
+  cursor: pointer;
   transition: all 0.3s;
 }
 .lightbox-prev { left: 32px; }
@@ -673,11 +673,10 @@ footer {
   outline: none;
   transition: border-color 0.3s;
   width: 100%;
-  cursor: none;
   -webkit-appearance: none;
 }
 .form-group input:focus,
-.form-group select,
+.form-group select:focus,
 .form-group textarea:focus {
   border-color: rgba(196,163,90,0.5);
 }
@@ -694,7 +693,7 @@ footer {
   border: none;
   font-family: var(--font-sans);
   font-weight: 500;
-  cursor: none;
+  cursor: pointer;
   transition: background 0.3s, transform 0.2s;
   display: inline-block;
 }
