@@ -611,6 +611,9 @@ footer {
 .lightbox-caption {
   position: absolute;
   bottom: 32px;
+  left: 0;
+  width: 100%;
+  text-align: center;
   font-size: 10px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -731,6 +734,7 @@ footer {
   .footer-nav { flex-wrap: wrap; gap: 16px; }
 
   .form-row { grid-template-columns: 1fr; }
+  .testimonial-section { padding: 80px 24px; }
 }
 
 @media (max-width: 600px) {
