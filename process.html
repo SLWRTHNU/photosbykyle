@@ -204,30 +204,60 @@
     }
     .process-cta .btn-primary { position: relative; }
 
+    /* Desktop: step-text-top/bottom are transparent so children flow in step-text-col */
+    .step-text-top { display: contents; }
+    .step-text-bottom { display: contents; }
+
     /* Mobile */
     @media (max-width: 900px) {
       .process-page-intro { padding: 0 24px 60px; }
       .process-page-intro p { max-width: 100%; }
-      .process-step { flex-direction: column; min-height: auto; }
+
+      /* Switch to column layout */
+      .process-step,
+      .process-step.flip { flex-direction: column; min-height: auto; }
+
+      /* Text column becomes transparent — top/bottom become direct flex children */
+      .process-step .step-text-col,
+      .process-step.flip .step-text-col { display: contents; }
+
+      /* Top block: eyebrow + ghost num + title — appears first */
+      .step-text-top {
+        display: block;
+        order: 1;
+        position: relative;
+        overflow: hidden;
+        padding: 40px 24px 20px;
+      }
+
+      /* Image — appears after title */
       .process-step .step-img-col,
       .process-step.flip .step-img-col {
-        width: 100%;
+        order: 2;
+        width: calc(100% - 48px);
         height: 62vw;
-        order: 0;
+        margin: 0 24px;
+        align-self: center;
       }
-      .process-step .step-text-col,
-      .process-step.flip .step-text-col {
-        order: 1;
-        padding: 52px 24px 60px;
-        width: 100%;
+
+      /* Bottom block: lead + body + tags — appears after image */
+      .step-text-bottom {
+        display: block;
+        order: 3;
+        padding: 16px 24px 52px;
       }
+
+      /* Ghost number repositioned to top-right of heading block */
       .step-ghost-num,
       .process-step.flip .step-ghost-num {
-        right: -6px;
+        position: absolute;
+        top: -10px;
+        right: -4px;
         left: auto;
-        bottom: -16px;
-        font-size: clamp(100px, 28vw, 160px);
+        bottom: auto;
+        font-size: clamp(80px, 22vw, 120px);
       }
+
       .step-lead { max-width: 100%; }
       .step-body { max-width: 100%; }
       .process-cta { padding: 80px 24px; }
@@ -286,16 +316,20 @@
       <img src="/images/branding_10.webp" alt="Professional portrait of male entrepreneur at modern urban architectural interior" loading="lazy">
     </div>
     <div class="step-text-col">
-      <span class="step-ghost-num">01</span>
-      <p class="step-eyebrow">Step One</p>
-      <h2 class="step-title">Before a single light is set,<br>we <em>talk.</em></h2>
-      <p class="step-lead">A 30-minute conversation that costs nothing and shapes everything.</p>
-      <p class="step-body">I want to understand your brand the way you do — the standards you hold yourself to, the story behind what you're building, and what success actually looks like for this project. From there, I'll send a detailed proposal with no strings attached.</p>
-      <div class="step-tags">
-        <span>Free</span>
-        <span>30 minutes</span>
-        <span>No obligation</span>
-        <span>Detailed proposal to follow</span>
+      <div class="step-text-top">
+        <span class="step-ghost-num">01</span>
+        <p class="step-eyebrow">Step One</p>
+        <h2 class="step-title">Before a single light is set,<br>we <em>talk.</em></h2>
+      </div>
+      <div class="step-text-bottom">
+        <p class="step-lead">A 30-minute conversation that costs nothing and shapes everything.</p>
+        <p class="step-body">I want to understand your brand the way you do — the standards you hold yourself to, the story behind what you're building, and what success actually looks like for this project. From there, I'll send a detailed proposal with no strings attached.</p>
+        <div class="step-tags">
+          <span>Free</span>
+          <span>30 minutes</span>
+          <span>No obligation</span>
+          <span>Detailed proposal to follow</span>
+        </div>
       </div>
     </div>
   </div>
@@ -306,16 +340,20 @@
       <img src="/images/food_24.webp" alt="Gourmet appetizer tasting display with varied fine dining plates" loading="lazy">
     </div>
     <div class="step-text-col">
-      <span class="step-ghost-num">02</span>
-      <p class="step-eyebrow">Step Two</p>
-      <h2 class="step-title">The shot <em>exists</em><br>before the shoot does.</h2>
-      <p class="step-lead">Once we've confirmed the project, the real work begins.</p>
-      <p class="step-body">I develop a complete visual plan — shot list, mood board, prop and styling direction, and full logistics for the day. You'll know exactly what to expect before a single piece of equipment leaves the bag. No surprises. Just great preparation.</p>
-      <div class="step-tags">
-        <span>Shot list</span>
-        <span>Mood board</span>
-        <span>Prop guidance</span>
-        <span>Location scouting if needed</span>
+      <div class="step-text-top">
+        <span class="step-ghost-num">02</span>
+        <p class="step-eyebrow">Step Two</p>
+        <h2 class="step-title">The shot <em>exists</em><br>before the shoot does.</h2>
+      </div>
+      <div class="step-text-bottom">
+        <p class="step-lead">Once we've confirmed the project, the real work begins.</p>
+        <p class="step-body">I develop a complete visual plan — shot list, mood board, prop and styling direction, and full logistics for the day. You'll know exactly what to expect before a single piece of equipment leaves the bag. No surprises. Just great preparation.</p>
+        <div class="step-tags">
+          <span>Shot list</span>
+          <span>Mood board</span>
+          <span>Prop guidance</span>
+          <span>Location scouting if needed</span>
+        </div>
       </div>
     </div>
   </div>
@@ -326,16 +364,20 @@
       <img src="/images/branding_7.webp" alt="Chef laughing during flambé cooking technique in professional commercial kitchen" loading="lazy">
     </div>
     <div class="step-text-col">
-      <span class="step-ghost-num">03</span>
-      <p class="step-eyebrow">Step Three</p>
-      <h2 class="step-title">Focused. <em>Precise.</em><br>Genuinely enjoyable.</h2>
-      <p class="step-lead">Shoot day is calm, professional, and built around bringing out the best in your food, your space, and your people.</p>
-      <p class="step-body">We move through the plan with intention, staying open to the moments that go beyond it. Live previews keep you in the loop throughout. You're welcome on set — most clients say it's one of their favourite parts of the whole process.</p>
-      <div class="step-tags">
-        <span>Professional lighting</span>
-        <span>On-set art direction</span>
-        <span>Live previews</span>
-        <span>You're welcome on set</span>
+      <div class="step-text-top">
+        <span class="step-ghost-num">03</span>
+        <p class="step-eyebrow">Step Three</p>
+        <h2 class="step-title">Focused. <em>Precise.</em><br>Genuinely enjoyable.</h2>
+      </div>
+      <div class="step-text-bottom">
+        <p class="step-lead">Shoot day is calm, professional, and built around bringing out the best in your food, your space, and your people.</p>
+        <p class="step-body">We move through the plan with intention, staying open to the moments that go beyond it. Live previews keep you in the loop throughout. You're welcome on set — most clients say it's one of their favourite parts of the whole process.</p>
+        <div class="step-tags">
+          <span>Professional lighting</span>
+          <span>On-set art direction</span>
+          <span>Live previews</span>
+          <span>You're welcome on set</span>
+        </div>
       </div>
     </div>
   </div>
@@ -346,17 +388,21 @@
       <img src="/images/food_26.webp" alt="Artistic fine dining dessert bowl with textured elements and colour contrast" loading="lazy">
     </div>
     <div class="step-text-col">
-      <span class="step-ghost-num">04</span>
-      <p class="step-eyebrow">Step Four</p>
-      <h2 class="step-title">Where <em>good</em><br>becomes unforgettable.</h2>
-      <p class="step-lead">Every image is colour-graded, retouched, and export-ready before it ever reaches you.</p>
-      <p class="step-body">Delivered through a private online gallery, formatted for web, social, and print — within the agreed timeline. Fully licensed for commercial use from the moment they arrive.</p>
-      <div class="step-tags">
-        <span>Full retouch</span>
-        <span>High-res &amp; web formats</span>
-        <span>Private gallery delivery</span>
-        <span>7–10 business days</span>
-        <span>Commercial rights included</span>
+      <div class="step-text-top">
+        <span class="step-ghost-num">04</span>
+        <p class="step-eyebrow">Step Four</p>
+        <h2 class="step-title">Where <em>good</em><br>becomes unforgettable.</h2>
+      </div>
+      <div class="step-text-bottom">
+        <p class="step-lead">Every image is colour-graded, retouched, and export-ready before it ever reaches you.</p>
+        <p class="step-body">Delivered through a private online gallery, formatted for web, social, and print — within the agreed timeline. Fully licensed for commercial use from the moment they arrive.</p>
+        <div class="step-tags">
+          <span>Full retouch</span>
+          <span>High-res &amp; web formats</span>
+          <span>Private gallery delivery</span>
+          <span>7–10 business days</span>
+          <span>Commercial rights included</span>
+        </div>
       </div>
     </div>
   </div>

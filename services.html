@@ -66,6 +66,8 @@
       order: 1;
       background: rgba(245,240,232,0.02);
     }
+    .service-content-top { display: contents; }
+    .service-content-bottom { display: contents; }
     .service-detail-num {
       font-family: var(--font-serif);
       font-size: 16px; letter-spacing: 0.4em;
@@ -170,9 +172,40 @@ margin-top: 20px; }
     @media (max-width: 900px) {
       .services-intro { padding: 0 24px 48px; }
       .services-intro p { max-width: 100%; }
-      .service-detail { grid-template-columns: 1fr; }
-      .service-detail-image { min-height: 55vw; order: 0 !important; }
-      .service-detail-content { padding: 48px 24px; order: 1 !important; }
+
+      /* Switch to flex column so we can order 3 blocks */
+      .service-detail { display: flex; flex-direction: column; }
+
+      /* Make content wrapper transparent — its children become direct flex items */
+      .service-detail-content { display: contents; }
+
+      /* Show top/bottom blocks as real boxes with order */
+      .service-content-top {
+        display: block;
+        order: 1;
+        padding: 48px 24px 20px;
+        background: var(--dark-surface);
+      }
+      .service-detail:nth-child(even) .service-content-top {
+        background: rgba(245,240,232,0.02);
+      }
+
+      .service-detail-image {
+        order: 2;
+        min-height: 62vw;
+        margin: 0 24px;
+      }
+
+      .service-content-bottom {
+        display: block;
+        order: 3;
+        padding: 20px 24px 48px;
+        background: var(--dark-surface);
+      }
+      .service-detail:nth-child(even) .service-content-bottom {
+        background: rgba(245,240,232,0.02);
+      }
+
       .pricing-note { padding: 60px 24px; }
       .t1d-note { padding: 60px 24px; }
     }
@@ -225,20 +258,23 @@ margin-top: 20px; }
     <div class="service-detail-image">
       <img src="/images/food_16.webp" alt="Gourmet pan dish with colorful vegetables and protein cooking in skillet">
     </div>
-    <div class="service-detail-content reveal">
-      <p class="service-detail-num">Service 01</p>
-      <h2 class="service-detail-title">Food <em>Photography</em></h2>
-      <p class="service-detail-body">Designed for restaurants, cafés, food artisans, and culinary brands. I create mouth-watering imagery that makes your food impossible to scroll past.</p>
-      <p class="service-detail-body">Whether it's a full menu shoot, a hero image for your website, or seasonal content for social media, every plate gets the star treatment.</p>
-      <div class="service-includes">
-        <div class="service-include-item">Menu & hero dish photography</div>
-        <div class="service-include-item">Restaurant atmosphere & ambiance shots</div>
-        <div class="service-include-item">Food styling guidance included</div>
-        <div class="service-include-item">Fully retouched high-resolution delivery</div>
-        <div class="service-include-item">Commercial usage rights included</div>
+    <div class="service-detail-content">
+      <div class="service-content-top reveal">
+        <p class="service-detail-num">Service 01</p>
+        <h2 class="service-detail-title">Food <em>Photography</em></h2>
       </div>
-  <a href="contact.html" class="service-link">Inquire About Food Photography</a>
-
+      <div class="service-content-bottom">
+        <p class="service-detail-body">Designed for restaurants, cafés, food artisans, and culinary brands. I create mouth-watering imagery that makes your food impossible to scroll past.</p>
+        <p class="service-detail-body">Whether it's a full menu shoot, a hero image for your website, or seasonal content for social media, every plate gets the star treatment.</p>
+        <div class="service-includes">
+          <div class="service-include-item">Menu & hero dish photography</div>
+          <div class="service-include-item">Restaurant atmosphere & ambiance shots</div>
+          <div class="service-include-item">Food styling guidance included</div>
+          <div class="service-include-item">Fully retouched high-resolution delivery</div>
+          <div class="service-include-item">Commercial usage rights included</div>
+        </div>
+        <a href="contact.html" class="service-link">Inquire About Food Photography</a>
+      </div>
     </div>
   </div>
 
@@ -246,21 +282,23 @@ margin-top: 20px; }
     <div class="service-detail-image">
       <img src="/images/branding_15.webp" alt="Modern geometric glass venue building illuminated at night">
     </div>
-    <div class="service-detail-content reveal">
-      <p class="service-detail-num">Service 02</p>
-      <h2 class="service-detail-title">Branding <em>Photography</em></h2>
-      <p class="service-detail-body">For businesses ready to invest in a visual identity that communicates professionalism, personality, and trust. From solopreneurs to growing teams.</p>
-      <p class="service-detail-body">We create a library of on-brand imagery you can deploy across your website, social media, proposals, and marketing materials for months to come.</p>
-      <div class="service-includes">
-        <div class="service-include-item">Professional headshots & team portraits</div>
-        <div class="service-include-item">Behind-the-scenes & workspace photography</div>
-        <div class="service-include-item">Product & lifestyle imagery</div>
-        <div class="service-include-item">Pre-shoot brand strategy call included</div>
-        <div class="service-include-item">Fully retouched high-resolution delivery</div>
+    <div class="service-detail-content">
+      <div class="service-content-top reveal">
+        <p class="service-detail-num">Service 02</p>
+        <h2 class="service-detail-title">Branding <em>Photography</em></h2>
       </div>
-
-<a href="contact.html" class="service-link">Inquire About Branding Photography</a>
-
+      <div class="service-content-bottom">
+        <p class="service-detail-body">For businesses ready to invest in a visual identity that communicates professionalism, personality, and trust. From solopreneurs to growing teams.</p>
+        <p class="service-detail-body">We create a library of on-brand imagery you can deploy across your website, social media, proposals, and marketing materials for months to come.</p>
+        <div class="service-includes">
+          <div class="service-include-item">Professional headshots & team portraits</div>
+          <div class="service-include-item">Behind-the-scenes & workspace photography</div>
+          <div class="service-include-item">Product & lifestyle imagery</div>
+          <div class="service-include-item">Pre-shoot brand strategy call included</div>
+          <div class="service-include-item">Fully retouched high-resolution delivery</div>
+        </div>
+        <a href="contact.html" class="service-link">Inquire About Branding Photography</a>
+      </div>
     </div>
   </div>
 
@@ -268,21 +306,23 @@ margin-top: 20px; }
     <div class="service-detail-image">
       <img src="/images/branding_6.webp" alt="Professional chef cooking ingredients in skillet during restaurant service">
     </div>
-    <div class="service-detail-content reveal">
-      <p class="service-detail-num">Service 03</p>
-      <h2 class="service-detail-title">Content <em>Packages</em></h2>
-      <p class="service-detail-body">For businesses that need a steady stream of fresh, on-brand content without the overhead of booking individual shoots every time.</p>
-      <p class="service-detail-body">Monthly or quarterly packages give you a consistent flow of imagery that keeps your social media, ads, and website looking current and professional year-round.</p>
-      <div class="service-includes">
-        <div class="service-include-item">Monthly or quarterly shoot schedule</div>
-        <div class="service-include-item">Discounted rate vs. individual bookings</div>
-        <div class="service-include-item">Priority scheduling and turnaround</div>
-        <div class="service-include-item">Content planning and shot list collaboration</div>
-        <div class="service-include-item">Formatted for Instagram, web, and print</div>
+    <div class="service-detail-content">
+      <div class="service-content-top reveal">
+        <p class="service-detail-num">Service 03</p>
+        <h2 class="service-detail-title">Content <em>Packages</em></h2>
       </div>
-
-<a href="contact.html" class="service-link">Inquire About a Content Package</a>
-
+      <div class="service-content-bottom">
+        <p class="service-detail-body">For businesses that need a steady stream of fresh, on-brand content without the overhead of booking individual shoots every time.</p>
+        <p class="service-detail-body">Monthly or quarterly packages give you a consistent flow of imagery that keeps your social media, ads, and website looking current and professional year-round.</p>
+        <div class="service-includes">
+          <div class="service-include-item">Monthly or quarterly shoot schedule</div>
+          <div class="service-include-item">Discounted rate vs. individual bookings</div>
+          <div class="service-include-item">Priority scheduling and turnaround</div>
+          <div class="service-include-item">Content planning and shot list collaboration</div>
+          <div class="service-include-item">Formatted for Instagram, web, and print</div>
+        </div>
+        <a href="contact.html" class="service-link">Inquire About a Content Package</a>
+      </div>
     </div>
   </div>
 </section>
