@@ -36,6 +36,7 @@ a { color: inherit; }
   position: fixed;
   width: 10px; height: 10px;
   background: var(--cream);
+  border: 1.5px solid var(--charcoal);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
