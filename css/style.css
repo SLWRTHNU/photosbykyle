@@ -17,7 +17,7 @@
   --numbers: 'Cormorant', serif;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; background: var(--charcoal); }
 
 body {
   font-family: var(--font-sans);
