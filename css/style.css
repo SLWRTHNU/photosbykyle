@@ -17,12 +17,12 @@
   --numbers: 'Cormorant', serif;
 }
 
-html { scroll-behavior: smooth; background: var(--charcoal); }
+html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--font-sans);
   background: var(--charcoal);
-  color: var(--cream);
+  color: var(--charcoal);
   cursor: none;
   overflow-x: hidden;
   min-width: 370px;
