@@ -122,4 +122,25 @@ if (cursor && ring) {
     if (e.key === 'ArrowRight') showNext();
   });
 
+  // ---- Lightbox swipe gestures (mobile) ----
+  if (lightbox) {
+    let touchStartX = 0, touchStartY = 0;
+    lightbox.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].clientX;
+      touchStartY = e.changedTouches[0].clientY;
+    }, { passive: true });
+    lightbox.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      const dy = e.changedTouches[0].clientY - touchStartY;
+      if (Math.abs(dx) < 30 && Math.abs(dy) < 30) return; // tap, not swipe
+      if (Math.abs(dx) >= Math.abs(dy)) {
+        // Horizontal swipe — navigate
+        dx < 0 ? showNext() : showPrev();
+      } else {
+        // Vertical swipe — close
+        closeLightbox();
+      }
+    }, { passive: true });
+  }
+
 });
