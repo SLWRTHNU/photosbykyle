@@ -156,11 +156,8 @@ nav.scrolled::before { opacity: 0; }
   background: var(--gold);
   transition: width 0.3s ease;
 }
-.nav-links a:hover,
 .nav-links a.active { color: var(--cream); }
-.nav-links a:hover::after,
 .nav-links a.active::after { width: 100%; }
-
 .nav-cta {
   position: relative;
   z-index: 1;
@@ -174,7 +171,6 @@ nav.scrolled::before { opacity: 0; }
   font-weight: 500;
   transition: background 0.3s, transform 0.2s;
 }
-.nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
 
 /* Hamburger (mobile) */
 .nav-hamburger {
@@ -219,7 +215,6 @@ nav.scrolled::before { opacity: 0; }
   text-decoration: none;
   transition: color 0.3s;
 }
-.nav-mobile a:hover { color: var(--gold); }
 
 /* ---- Marquee ---- */
 .marquee-wrap {
@@ -259,7 +254,6 @@ nav.scrolled::before { opacity: 0; }
   transition: background 0.3s, transform 0.2s;
   display: inline-block;
 }
-.btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
 
 .btn-ghost {
   font-size: 10px;
@@ -273,8 +267,6 @@ nav.scrolled::before { opacity: 0; }
   transition: color 0.3s, gap 0.3s;
 }
 .btn-ghost::after { content: '→'; transition: transform 0.3s; }
-.btn-ghost:hover { color: var(--cream); }
-.btn-ghost:hover::after { transform: translateX(4px); }
 
 .btn-ghost-dark {
   font-size: 10px;
@@ -288,8 +280,6 @@ nav.scrolled::before { opacity: 0; }
   transition: color 0.3s;
 }
 .btn-ghost-dark::after { content: '→'; transition: transform 0.3s; }
-.btn-ghost-dark:hover { color: var(--charcoal); }
-.btn-ghost-dark:hover::after { transform: translateX(4px); }
 
 /* ---- Section helpers ---- */
 .section-label {
@@ -430,7 +420,6 @@ footer {
   text-decoration: none;
   transition: color 0.3s;
 }
-.footer-nav a:hover { color: var(--gold); }
 .footer-right {
   display: flex;
   flex-direction: column;
@@ -449,7 +438,6 @@ footer {
   text-decoration: none;
   transition: color 0.3s;
 }
-.footer-social a:hover { color: var(--gold); }
 .footer-copy {
   font-size: 10px;
   color: rgba(245, 240, 232, 0.2);
@@ -503,7 +491,6 @@ footer {
   display: block;
   transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.grid-item:hover img { transform: scale(1.05); }
 .grid-overlay {
   position: absolute;
   inset: 0;
@@ -514,7 +501,6 @@ footer {
   align-items: flex-end;
   padding: 24px;
 }
-.grid-item:hover .grid-overlay { opacity: 1; }
 .grid-label {
   font-size: 10px;
   letter-spacing: 0.3em;
@@ -589,7 +575,6 @@ footer {
   border: none;
   transition: color 0.3s;
 }
-.lightbox-close:hover { color: var(--gold); }
 .lightbox-prev, .lightbox-next {
   position: absolute;
   top: 50%;
@@ -605,10 +590,6 @@ footer {
 }
 .lightbox-prev { left: 32px; }
 .lightbox-next { right: 32px; }
-.lightbox-prev:hover, .lightbox-next:hover {
-  border-color: var(--gold);
-  color: var(--gold);
-}
 .lightbox-caption {
   position: absolute;
   bottom: 32px;
@@ -708,7 +689,26 @@ footer {
   transition: background 0.3s, transform 0.2s;
   display: inline-block;
 }
-.form-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+/* ---- Hover-capable devices only (prevents iOS double-tap) ---- */
+@media (hover: hover) {
+  .nav-links a:hover { color: var(--cream); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .nav-mobile a:hover { color: var(--gold); }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-ghost:hover { color: var(--cream); }
+  .btn-ghost:hover::after { transform: translateX(4px); }
+  .btn-ghost-dark:hover { color: var(--charcoal); }
+  .btn-ghost-dark:hover::after { transform: translateX(4px); }
+  .footer-nav a:hover { color: var(--gold); }
+  .footer-social a:hover { color: var(--gold); }
+  .grid-item:hover img { transform: scale(1.05); }
+  .grid-item:hover .grid-overlay { opacity: 1; }
+  .lightbox-close:hover { color: var(--gold); }
+  .lightbox-prev:hover, .lightbox-next:hover { border-color: var(--gold); color: var(--gold); }
+  .form-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
+}
 
 /* ---- Touch devices: hide custom cursor ---- */
 @media (hover: none) {
